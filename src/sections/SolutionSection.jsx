@@ -7,20 +7,20 @@ import SolutionDiagram from '../components/viz/SolutionDiagram'
 
 const STEPS = [
   {
-    headline: 'One sentence',
-    body: 'A cloud platform that connects distributed rooftop batteries across Jordanian commercial and industrial sites and automatically optimises their charge/discharge schedule against the live EMRC Time-of-Use tariff — turning idle hardware into verified monthly savings for the customer and a dispatchable flexibility resource for the grid.',
+    headline: 'Software that finally makes the battery do its job',
+    body: "Every commercial site in Jordan with rooftop solar and a battery already has the hardware. What's missing is a brain — software that watches the electricity price, predicts tomorrow's sun and load, and automatically decides when to charge cheap and release during the expensive evening hours. That's us.",
   },
   {
-    headline: 'The Edge Layer: no trust required',
-    body: 'A Teltonika RUT956 IoT controller (JOD 700/site) sits between the inverter and our cloud. It reads real-time state-of-charge, sends dispatch commands on a sub-minute loop, and provides a physical override switch. The customer is always in control.',
+    headline: 'We plug into what is already there',
+    body: "Jordan's commercial and industrial sites already have government-mandated smart meters installed on-site. We connect through those — no new hardware to purchase, no installation crews, no disruption to operations. We always give the customer a physical override: their site, their rules, their call.",
   },
   {
-    headline: 'The Platform Layer: the intelligence that doesn\'t exist today',
-    body: 'Our cloud dispatch engine forecasts next-day solar generation and site load, then calculates the optimal charge/discharge schedule against EMRC\'s tariff bands. Every decision is logged, verified against the actual bill, and reported to the CFO automatically each month.',
+    headline: 'The scheduling brain that runs overnight, invisibly',
+    body: "Each evening our platform calculates the next day's optimal battery schedule — factoring in tomorrow's weather forecast, historical load patterns, and the exact tariff bands that kick in at 5pm. The battery just follows the plan. The CFO sees the verified saving on a monthly report.",
   },
   {
-    headline: 'We are not selling hardware. We are not a utility.',
-    body: 'We are the software layer that makes existing hardware perform as originally promised. No CAPEX. No installation risk. No operational disruption. Just the performance the customer\'s BESS was always capable of — finally delivered.',
+    headline: 'Pure software. Zero new cost to the customer.',
+    body: "We are not selling hardware. We are not a utility. We are the missing software layer that makes existing equipment do what it was always supposed to do — reliably, automatically, every single day. The customer keeps everything they already own. We just make it smarter.",
   },
 ]
 

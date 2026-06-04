@@ -124,22 +124,22 @@ export default function AskSection() {
           transition={{ duration: 0.7, delay: 0.4 }}
           className="border border-border rounded-xl p-6 bg-surface"
         >
-          <p className="chapter-label mb-4">Unit economics — honest</p>
+          <p className="chapter-label mb-4">The honest numbers</p>
           <div className="grid grid-cols-3 gap-6 text-center">
             <div>
-              <p className="stat-number text-2xl text-danger font-bold">0.69</p>
-              <p className="text-muted text-xs mt-1">Year 1 LTV:CAC</p>
-              <p className="text-muted text-xs">Below 3:1 benchmark — stated openly</p>
+              <p className="stat-number text-2xl text-danger font-bold">Year 1</p>
+              <p className="text-muted text-xs mt-1">Customer value &lt; acquisition cost</p>
+              <p className="text-muted text-xs">We acknowledge this — it's a pilot phase</p>
             </div>
             <div>
-              <p className="stat-number text-2xl text-success font-bold">&gt;3.0</p>
-              <p className="text-muted text-xs mt-1">Year 5 LTV:CAC</p>
-              <p className="text-muted text-xs">As CAC falls via channel partners</p>
+              <p className="stat-number text-2xl text-success font-bold">Year 5</p>
+              <p className="text-muted text-xs mt-1">Customer value 3× acquisition cost</p>
+              <p className="text-muted text-xs">As referrals replace cold outreach</p>
             </div>
             <div>
               <p className="stat-number text-2xl text-accent font-bold">8 mo</p>
-              <p className="text-muted text-xs mt-1">Hardware payback</p>
-              <p className="text-muted text-xs">Per site on blended portfolio</p>
+              <p className="text-muted text-xs mt-1">Our IoT hardware paid back</p>
+              <p className="text-muted text-xs">Per site on the blended portfolio</p>
             </div>
           </div>
         </motion.div>

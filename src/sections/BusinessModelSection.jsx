@@ -7,16 +7,16 @@ import RevenueViz from '../components/viz/RevenueViz'
 
 const STEPS = [
   {
-    headline: "JOD 35 per site per month — a rounding error on the CFO's bill",
-    body: 'At JOD 35/site/month (invoiced quarterly), the subscription is 0.2% of a typical industrial electricity bill. It is never a budget conversation. It never goes to procurement committee. The CFO signs it on the basis of the first month\'s report.',
+    headline: "JOD 30 a month — and we only charge more when you save more",
+    body: "The subscription is JOD 30 per site per month, invoiced quarterly. For a commercial site with a large electricity bill, that is a rounding error — never a procurement conversation. On top of that, we take 10% of whatever we save them. If we don't save them anything, we don't charge extra. Simple, aligned, zero risk for the customer.",
   },
   {
-    headline: 'Revenue milestones are conservative — Phase 1 alone is viable',
-    body: '3 sites by end of Year 1. 20 by mid Year 2. 80–100 by Year 5 at our SOM. Annual revenue scales from JOD 4,200 to JOD 112–200K on Phase 1 alone. Gross margin: 74% at every point on the curve. Software economics, not hardware economics.',
+    headline: "The growth path is gradual — built on proof, not promises",
+    body: "We start with a handful of pilot sites, verify the savings, and let the results do the selling. The numbers at this stage are modest by design. We are building trust and a track record, not chasing revenue. Gross margins hold at around 74% whether we have 3 sites or 300 — because this is a software business.",
   },
   {
-    headline: 'Three phases, three revenue layers — Phase 1 builds the asset',
-    body: 'Phase 1 (Years 1–3+): C&I ToU optimisation — executable under current law. Phase 2 (Years 3–5): Formal demand response against NEPCO — USD 2.5–5M/yr at 50 MW. Phase 3 (Year 5+): Ancillary services and balancing markets — the Next Kraftwerke model. Phase 1 pays. Phase 2 scales. Phase 3 prices into a market.',
+    headline: 'Three ways this business grows over time',
+    body: "Right now: we help commercial sites save money on their peak electricity bills — no law changes needed. In a few years, as Jordan formalises its grid flexibility rules, we can aggregate those same batteries and get paid by the grid operator too. Longer term, the platform participates in energy markets directly. Each phase builds on the last.",
   },
 ]
 

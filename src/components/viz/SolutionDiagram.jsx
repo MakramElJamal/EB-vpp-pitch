@@ -12,9 +12,9 @@ const LAYERS = [
   },
   {
     id: 'edge',
-    label: 'Edge Layer',
-    sublabel: 'IoT controller · JOD 700/site · Teltonika RUT956',
-    why: 'On-site telemetry + dispatch commands · physical override always with customer',
+    label: 'Connection Layer',
+    sublabel: "Connects through government-installed smart meters already on site",
+    why: "No new hardware needed — customer keeps physical override at all times",
     color: '#60A5FA',
     icon: '📡',
     icons: ['📡', '🖥️', '🔒'],

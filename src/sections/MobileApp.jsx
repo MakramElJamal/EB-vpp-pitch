@@ -108,15 +108,15 @@ export default function MobileApp() {
         <FadeUp><p className="chapter-label">The Solution</p></FadeUp>
         <FadeUp delay={0.1}>
           <p className="text-primary text-base leading-relaxed">
-            A cloud platform that connects Jordan's distributed BESS and optimises their charge/discharge against the live EMRC ToU tariff —
-            turning idle hardware into verified monthly savings.
+            Software that tells Jordan's existing rooftop batteries when to charge cheap and release during expensive peak hours —
+            turning idle hardware into a verified monthly saving on the electricity bill.
           </p>
         </FadeUp>
         {[
-          { label: 'Asset Layer', desc: 'Existing PV + BESS — zero CAPEX friction', color: '#E8A838' },
-          { label: 'Edge Layer', desc: 'IoT controller · physical override always with customer', color: '#60A5FA' },
-          { label: 'Platform Layer', desc: 'Cloud dispatch engine — the intelligence that doesn\'t exist today', color: '#0D9488' },
-          { label: 'Customer Layer', desc: 'Web dashboard + automated monthly JOD savings report', color: '#22C55E' },
+          { label: 'What the customer already owns', desc: 'Solar panels + battery + inverter — no new hardware needed', color: '#E8A838' },
+          { label: 'How we connect', desc: 'Through government-installed smart meters already on site — customer keeps full override', color: '#60A5FA' },
+          { label: 'The smart scheduling layer', desc: 'Our software plans the battery schedule overnight, automatically, every day', color: '#0D9488' },
+          { label: 'What the customer sees', desc: 'A simple dashboard and a monthly report showing exactly how much they saved', color: '#22C55E' },
         ].map((layer, i) => (
           <FadeUp key={i} delay={0.1 + i * 0.1}>
             <div className="border rounded-lg p-3.5 flex gap-3"
@@ -143,10 +143,10 @@ export default function MobileApp() {
         <FadeUp delay={0.2}>
           <div className="space-y-2">
             {[
-              ['Jul 2024', 'EMRC mandatory ToU activated'],
-              ['Nov 2024', 'Law 13/2012 amended — private BESS legal'],
-              ['Jan 2025', 'ToU extended to hotels, hospitals, banks'],
-              ['2024', 'USTDA VPP feasibility study commissioned'],
+              ['Jul 2024', 'Peak pricing rules made mandatory for industry'],
+              ['Nov 2024', 'Law amended — private battery storage now legal'],
+              ['Jan 2025', 'Peak pricing extended to hotels, hospitals, banks'],
+              ['2024', 'US government funds Jordan VPP feasibility study'],
             ].map(([date, ev], i) => (
               <div key={i} className="flex gap-3 items-start">
                 <span className="font-mono text-xs text-gold flex-shrink-0 w-16 pt-0.5">{date}</span>
@@ -168,13 +168,13 @@ export default function MobileApp() {
         <FadeUp delay={0.1}>
           <div className="border border-border rounded-xl p-5 bg-surface space-y-3">
             <div className="flex items-baseline gap-2">
-              <span className="stat-number text-3xl text-gold font-bold">JOD 35</span>
+              <span className="stat-number text-3xl text-gold font-bold">JOD 30</span>
               <span className="text-muted text-sm">/ site / month</span>
             </div>
-            <p className="text-muted text-xs">= 0.2% of a typical industrial bill</p>
+            <p className="text-muted text-xs">A rounding error on a large electricity bill</p>
             <div className="border-t border-border pt-3">
               <span className="stat-number text-xl text-accent font-bold">+10%</span>
-              <span className="text-muted text-sm ml-2">of verified savings</span>
+              <span className="text-muted text-sm ml-2">of whatever we save them</span>
             </div>
           </div>
         </FadeUp>
@@ -182,21 +182,21 @@ export default function MobileApp() {
           <div className="flex items-center gap-3">
             <span className="stat-number text-3xl text-success font-bold">74%</span>
             <div>
-              <p className="text-sm text-primary font-medium">Gross margin</p>
-              <p className="text-xs text-muted">Software economics at every scale</p>
+              <p className="text-sm text-primary font-medium">Gross margin — at every scale</p>
+              <p className="text-xs text-muted">Software costs don't grow with more sites</p>
             </div>
           </div>
         </FadeUp>
         <FadeUp delay={0.2}>
           <div className="space-y-2">
             {[
-              ['Year 1', '3 sites', 'JOD 4,200'],
-              ['Year 2', '20 sites', 'JOD 28,000'],
-              ['Year 5', '80–100 sites', 'JOD 112–200K'],
+              ['Year 1', '3 pilot sites', '~JOD 3–4K'],
+              ['Year 2–3', '20 sites', '~JOD 24K'],
+              ['Year 5', '80–100 sites', '~JOD 108K'],
             ].map(([yr, sites, rev], i) => (
               <div key={i} className="flex justify-between text-sm border-b border-border pb-1.5">
                 <span className="text-muted">{yr} · {sites}</span>
-                <span className="font-mono text-gold">{rev}</span>
+                <span className="font-mono text-muted">{rev}</span>
               </div>
             ))}
           </div>
