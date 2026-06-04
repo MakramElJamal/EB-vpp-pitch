@@ -36,6 +36,9 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background: #FFFFFF;
+  border-left: 1px solid #E5E1DA;
+  box-shadow: -3px 0 16px rgba(0, 0, 0, 0.04);
 }
 
 /* ── Two-column chapter grid ──────────────────────────────── */

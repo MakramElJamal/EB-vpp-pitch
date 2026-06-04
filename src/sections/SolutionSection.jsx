@@ -47,7 +47,7 @@ export default function SolutionSection() {
       <div className="chapter-inner">
 
         {/* Sticky diagram panel */}
-        <div className="order-first lg:order-last sticky-viz bg-surface border-l border-border overflow-y-auto">
+        <div className="order-first lg:order-last sticky-viz overflow-y-auto">
           <motion.div
             className="w-full h-full flex items-center justify-center"
             key={`layers-${visibleLayers}`}

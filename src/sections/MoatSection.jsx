@@ -7,8 +7,8 @@ import MoatViz from '../components/viz/MoatViz'
 
 const STEPS = [
   {
-    headline: 'Tariff-native and override-protected',
-    body: 'Our dispatch engine is calibrated to Jordan\'s specific ToU bands, fils-per-kWh structure, and Bylaw 58 export rules. Every international competitor would need a full rebuild. Meanwhile, a physical override switch ensures the production uptime objection is resolved before it\'s raised.',
+    headline: "Built for Jordan's exact electricity rules — not adapted from somewhere else",
+    body: "Our software is built around the specific peak pricing hours and tariff structure that apply in Jordan. Every competitor entering from outside would need to rebuild their entire system from scratch to match this. We already did that work.",
   },
   {
     headline: 'Zero upfront cost removes the procurement barrier',
@@ -19,8 +19,8 @@ const STEPS = [
     body: 'Industrial sales in Jordan are closed at the plant, through trusted introductions, over coffee. The decision-maker is a plant manager, an engineering director, or an operations VP — not a procurement portal. We are insiders with existing relationships inside Jordanian industry.',
   },
   {
-    headline: 'Portfolio data compounds into a permanent moat',
-    body: 'Every additional site we connect improves the forecasting model for every other site in the portfolio. Load patterns, solar yield curves, grid frequency correlations — accuracy compounds with scale. A new entrant starts with none of it. That gap widens permanently, and capital alone cannot close it.',
+    headline: 'Our software gets smarter with every new site — permanently',
+    body: 'Every site we connect teaches the system more about how commercial sites in Jordan use energy. Our scheduling decisions get more accurate. A new competitor starting tomorrow begins with none of that learning. The gap widens with every site we add, and money alone cannot close it.',
   },
   {
     headline: "NEPCO can't block us — and we don't need them to succeed",
@@ -49,7 +49,7 @@ export default function MoatSection() {
       <div className="chapter-inner">
 
         {/* Sticky viz */}
-        <div className="order-first lg:order-last sticky-viz bg-surface border-l border-border overflow-y-auto">
+        <div className="order-first lg:order-last sticky-viz overflow-y-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeStep}

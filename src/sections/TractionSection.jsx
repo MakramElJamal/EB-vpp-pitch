@@ -41,7 +41,7 @@ export default function TractionSection() {
       <div className="chapter-inner">
 
         {/* Sticky viz */}
-        <div className="order-first lg:order-last sticky-viz bg-surface border-l border-border">
+        <div className="order-first lg:order-last sticky-viz">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeStep}

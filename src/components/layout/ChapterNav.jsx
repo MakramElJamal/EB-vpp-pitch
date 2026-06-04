@@ -32,7 +32,7 @@ export default function ChapterNav() {
           <span className={`
             block rounded-full transition-all duration-300
             ${currentChapter === i
-              ? 'w-2.5 h-2.5 bg-accent shadow-[0_0_8px_#0D9488]'
+              ? 'w-2.5 h-2.5 bg-accent shadow-[0_0_8px_rgba(11,112,112,0.5)]'
               : 'w-1.5 h-1.5 bg-border group-hover:bg-muted'
             }
           `} />

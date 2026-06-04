@@ -43,17 +43,54 @@ const MILESTONES = [
   },
 ]
 
+const nodeStyle = (m) => {
+  if (!m.done) return {
+    background: '#FEF9F0',
+    border: '1.5px dashed #B45309',
+  }
+  if (m.hot) return {
+    background: '#E8F5F5',
+    border: '1.5px solid #0B7070',
+    boxShadow: '0 0 10px rgba(11,112,112,0.18)',
+  }
+  return {
+    background: '#F4F6F4',
+    border: '1.5px solid #C8D4C8',
+  }
+}
+
+const cardStyle = (m) => {
+  if (!m.done) return {
+    borderColor: 'rgba(180,83,9,0.2)',
+    background: '#FFFCF7',
+  }
+  if (m.hot) return {
+    borderColor: 'rgba(11,112,112,0.25)',
+    background: '#F0FAFA',
+  }
+  return {
+    borderColor: '#E5E1DA',
+    background: '#FFFFFF',
+  }
+}
+
+const dateColor = (m) => {
+  if (!m.done) return '#B45309'
+  if (m.hot) return '#0B7070'
+  return '#78716C'
+}
+
 export default function PolicyRoadmap() {
   return (
-    <div className="w-full h-full flex flex-col justify-center px-6 py-8 overflow-y-auto">
-      <p className="chapter-label mb-6">Jordan's energy policy — already locked in</p>
+    <div className="w-full h-full flex flex-col justify-center px-6 py-6 overflow-y-auto">
+      <p className="chapter-label mb-5">Jordan's energy policy — already locked in</p>
 
       <div className="relative">
         {/* Track line */}
-        <div className="absolute left-[18px] top-4 bottom-4 w-px"
-          style={{ background: 'linear-gradient(to bottom, #0B7070 60%, #B45309)' }} />
+        <div className="absolute left-[18px] top-5 bottom-5 w-px"
+          style={{ background: 'linear-gradient(to bottom, #0B7070 65%, #B45309)' }} />
 
-        <div className="space-y-3">
+        <div className="space-y-2.5">
           {MILESTONES.map((m, i) => (
             <motion.div key={i}
               initial={{ opacity: 0, x: -14 }}
@@ -63,32 +100,18 @@ export default function PolicyRoadmap() {
             >
               {/* Node */}
               <div className="flex-shrink-0 relative z-10 mt-0.5">
-                {m.done ? (
-                  <div className="w-9 h-9 rounded-xl flex items-center justify-center text-base"
-                    style={{
-                      background: m.hot ? '#0B707020' : '#12121A',
-                      border: `1.5px solid ${m.hot ? '#0B7070' : '#1E2D2C'}`,
-                      boxShadow: m.hot ? '0 0 10px #0B707040' : 'none',
-                    }}>
-                    {m.icon}
-                  </div>
-                ) : (
-                  <div className="w-9 h-9 rounded-xl flex items-center justify-center text-base"
-                    style={{ border: '1.5px dashed #B45309', background: '#050810' }}>
-                    {m.icon}
-                  </div>
-                )}
+                <div className="w-9 h-9 rounded-xl flex items-center justify-center text-base"
+                  style={nodeStyle(m)}>
+                  {m.icon}
+                </div>
               </div>
 
-              {/* Content */}
-              <div className="flex-1 border border-border rounded-xl p-3 bg-surface min-w-0"
-                style={{
-                  borderColor: m.done ? (m.hot ? '#0B707030' : '#1A2040') : '#B4530930',
-                  background: m.done ? (m.hot ? '#0B707008' : '#0C1022') : '#B4530906',
-                }}>
+              {/* Card */}
+              <div className="flex-1 border rounded-xl p-3 min-w-0 shadow-sm"
+                style={cardStyle(m)}>
                 <div className="flex items-baseline gap-2 flex-wrap mb-0.5">
                   <span className="font-mono text-xs font-bold flex-shrink-0"
-                    style={{ color: m.done ? (m.hot ? '#0B7070' : '#7A84A8') : '#B45309' }}>
+                    style={{ color: dateColor(m) }}>
                     {m.date}
                   </span>
                   <span className="text-primary text-xs font-semibold leading-snug">{m.title}</span>
