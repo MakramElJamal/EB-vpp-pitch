@@ -5,23 +5,24 @@ import ScrollStep from '../components/layout/ScrollStep'
 import useScrollStore from '../store/scrollStore'
 import TariffChart from '../components/viz/TariffChart'
 import GridStatsViz from '../components/viz/GridStatsViz'
+import InsightViz from '../components/viz/InsightViz'
 
 const STEPS = [
   {
-    headline: "ToU tariffs activated — the CFO's BESS isn't performing",
-    body: "In July 2024, Jordan's EMRC mandated Time-of-Use pricing for all medium and large industry. Peak electricity (17:00–23:00) costs 25% more. A typical 1 MWh BESS should charge cheap during the day and discharge during the expensive evening peak. It doesn't. Manual dispatch is error-prone. Inverter-native controls aren't tariff-aware. No forecasting exists.",
+    headline: "The CFO approved the battery. His payback calculation is wrong.",
+    body: "In July 2024, Jordan mandated peak pricing for all medium and large industry — electricity costs 25% more between 5pm and 11pm. Every BESS installed should be charging cheap all day and releasing during that expensive window. It isn't. No software is doing the scheduling. The CFO's 4-year payback is quietly slipping.",
   },
   {
-    headline: "15–20% of available savings unrealised every month",
-    body: "The plant manager already bought the hardware. He told his CFO it would pay back in 4 years. It isn't. Every month that the battery fails to dispatch at peak, that payback period extends — quietly, with no alert, no report, and no recourse.",
+    headline: "15–20% of available savings missed every single month",
+    body: "No alert. No report. No recourse. The battery just sits at whatever charge level it was left at. The peak window opens at 5pm, the battery does nothing useful, and the electricity bill arrives the same size it always did. The hardware is fine. The management software doesn't exist.",
   },
   {
-    headline: "NEPCO: 26.9% renewable — target is 50% by 2030",
-    body: "NEPCO must reach 50% renewable energy by 2030. It currently sits at 26.9%. Renewable curtailment is already at 10% of annual peak demand. Jordan has no VPP licensing framework, no open communication standard, and only 12,500 smart meters deployed. Thousands of batteries sit behind customer meters — completely invisible and uncontrollable to the grid operator.",
+    headline: "The grid operator has the same problem, scaled to a country",
+    body: "NEPCO must reach 50% renewable energy by 2030 — it currently sits at 26.9%. Thousands of batteries sit behind customer meters, completely invisible to grid control. Every battery that runs on autopilot is a resource the national grid cannot use, in a country that imports 90% of its energy.",
   },
   {
-    headline: "The non-obvious insight: the asset base already exists",
-    body: "Jordan doesn't need more batteries. It needs someone to coordinate the ones already there. 82,780 rooftop systems. 1 GW of installed solar. Thousands of BESS units. All idle during the exact window that matters. The problem is purely software.",
+    headline: "The opportunity hiding in plain sight",
+    body: "Every factory, hotel, and hospital that installed solar in the last five years has a battery. Those batteries are sleeping during the exact hours that matter. This is not a hardware problem. It never was.",
   },
 ]
 
@@ -46,7 +47,7 @@ export default function ProblemSection() {
       case 0: return <TariffChart activeStep={0} />
       case 1: return <TariffChart activeStep={1} />
       case 2: return <GridStatsViz activeStep={1} />
-      case 3: return <GridStatsViz activeStep={2} />
+      case 3: return <InsightViz />
       default: return <TariffChart activeStep={0} />
     }
   }

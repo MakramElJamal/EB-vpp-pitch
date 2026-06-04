@@ -7,16 +7,16 @@ import TractionViz from '../components/viz/TractionViz'
 
 const STEPS = [
   {
-    headline: 'This is not a hypothesis. The commercial conditions are already live.',
-    body: '82,780 distributed PV systems across Jordan. A 25% Time-of-Use tariff differential that opened in July 2024. Zero direct VPP competitors operating commercially in all of MENA. The arbitrage window exists right now. Today.',
+    headline: 'Every condition for this business to exist has already been met.',
+    body: "The batteries are installed. Peak pricing is live. No competitor operates commercially anywhere in the Middle East. We are not waiting for the market to form — it already has. The only thing missing is the software layer sitting in the middle of it.",
   },
   {
-    headline: 'The regulatory stars have aligned — actual policy, not hope',
-    body: 'July 2024: EMRC activates mandatory ToU for medium and large industry. November 2024: Law 13/2012 amended — private-sector BESS stations now legally permitted. January 2025: ToU extended to hotels, hospitals, water pumping, banking. A USTDA-funded VPP feasibility study with Kawar Energy commissioned by the government — a pre-procurement signal, not a pilot test.',
+    headline: 'Four policy moves in eighteen months — each one a green light',
+    body: 'Peak pricing made mandatory. Private storage legalised. The sector extended to hotels and hospitals. A US government-funded feasibility study commissioned. Each of these happened between July 2024 and January 2025. This is a policy runway, not a regulatory bet.',
   },
   {
-    headline: 'The market is being legislated into existence',
-    body: 'BESS adoption in Jordan is not a bet we\'re making. It\'s being mandated from above by national energy policy. The MEMR National Strategy targets 50% renewables by 2030. Storage is structurally required to get there. Our SOM is conservative — every year of delay widens the opportunity.',
+    headline: 'The first-mover window is real and it is closing',
+    body: "No competitor operates commercially in MENA today. Jordan's storage mandate is building fast. The team that establishes the first verified saving, the first customer relationship, and the first regulatory dialogue wins ground that cannot be bought back.",
   },
 ]
 

@@ -7,27 +7,27 @@ const COLUMNS = [
     heading: 'Why Now',
     color: '#0D9488',
     points: [
-      'ToU arbitrage window opened July 2024 — first time commercially exploitable in Jordan\'s history',
-      'Law amended, private storage legal, USTDA study commissioned — regulatory stars aligned',
-      'No MENA competitor operates commercially today — the first-mover window is narrow and closing',
+      'Four policy moves in eighteen months — peak pricing live, storage legalised, sector expanded, feasibility study funded',
+      'No MENA competitor operates commercially today — the window is open right now',
+      'Every year without a software layer is a year of compounding missed savings across 82,780 sites',
     ],
   },
   {
     heading: 'Why Jordan',
     color: '#E8A838',
     points: [
-      '90% energy import dependency — maximum national urgency to solve storage utilisation',
-      '1 GW of rooftop PV already installed and waiting to be optimised',
-      'Government-commissioned VPP study = a pre-procurement greenlight, not a pilot test',
+      '90% energy import dependency — reducing peak grid load is a national priority, not a niche concern',
+      'The government has already funded a feasibility study for exactly what we are building',
+      'First market proof here travels across the region — MENA has the same hardware, the same problem',
     ],
   },
   {
     heading: 'Why Us',
     color: '#A78BFA',
     points: [
-      'Power systems and dispatch optimisation depth — rare in this region',
-      'Cultural and relationship capital inside Jordanian industry — not replicable with a budget',
-      'Portfolio data compounds into a moat that capital alone cannot close',
+      'Built for Jordan\'s specific tariff structure — every international competitor would need a complete rebuild',
+      'Industrial relationships inside Jordan that cannot be replicated with a budget or a demo call',
+      'Every site we add makes the model smarter for every other site — a data advantage that compounds',
     ],
   },
 ]

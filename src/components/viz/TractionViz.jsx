@@ -1,18 +1,11 @@
 import { motion } from 'framer-motion'
 import { useAnimatedCounter } from '../../hooks/useAnimatedCounter'
+import PolicyRoadmap from './PolicyRoadmap'
 
 const STATS = [
-  { value: 82780, unit: '', label: 'distributed PV systems\nin Jordan', color: '#0D9488' },
-  { value: 25, unit: '%', label: 'ToU tariff differential\nexploitable right now', color: '#E8A838' },
-  { value: 0, unit: '', label: 'direct VPP competitors\nin all of MENA', color: '#22C55E' },
-]
-
-const TIMELINE = [
-  { date: 'Jul 2024', event: 'EMRC activates mandatory ToU tariffs for medium & large industry', hot: true },
-  { date: 'Nov 2024', event: 'Law 13/2012 amended — private-sector BESS stations legally permitted', hot: true },
-  { date: 'Jan 2025', event: 'ToU extended to hotels, hospitals, water pumping, banking sectors', hot: false },
-  { date: '2024', event: 'USTDA-funded VPP feasibility study with Kawar Energy — government pre-procurement signal', hot: false },
-  { date: '→ 2030', event: 'MEMR National Strategy: 50% renewables — storage structurally required', hot: false },
+  { value: 82780, unit: '', label: 'battery sites already installed\nwaiting for coordination', color: '#0D9488' },
+  { value: 25,    unit: '%', label: 'peak pricing premium\nexploitable right now', color: '#E8A838' },
+  { value: 0,     unit: '', label: 'VPP competitors\noperating in MENA today', color: '#22C55E' },
 ]
 
 function AnimStat({ value, unit, label, color, animate }) {
@@ -29,57 +22,35 @@ function AnimStat({ value, unit, label, color, animate }) {
 
 export default function TractionViz({ activeStep }) {
   return (
-    <div className="w-full h-full flex flex-col justify-center px-8 py-8">
+    <div className="w-full h-full flex flex-col justify-center">
       {activeStep === 0 && (
-        <motion.div key="stats" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
-          <p className="chapter-label mb-6">The numbers that make this executable today</p>
+        <motion.div key="stats" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+          className="px-8 py-8 space-y-8">
+          <p className="chapter-label">Every condition for this to work is already met</p>
           <div className="grid grid-cols-1 gap-8">
-            {STATS.map((s, i) => (
-              <AnimStat key={i} {...s} animate />
-            ))}
+            {STATS.map((s, i) => <AnimStat key={i} {...s} animate />)}
           </div>
         </motion.div>
       )}
 
       {activeStep === 1 && (
-        <motion.div key="timeline" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-3">
-          <p className="chapter-label mb-4">Regulatory Evidence — not hope, actual policy</p>
-          {TIMELINE.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: -16 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: i * 0.1 }}
-              className="flex gap-3 items-start"
-            >
-              <span
-                className="font-mono text-xs pt-0.5 flex-shrink-0 w-14"
-                style={{ color: item.hot ? '#E8A838' : '#7A84A8' }}
-              >
-                {item.date}
-              </span>
-              <div className="flex items-start gap-2 flex-1">
-                <span
-                  className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0"
-                  style={{ background: item.hot ? '#E8A838' : '#1A2040' }}
-                />
-                <p className="text-sm text-muted leading-snug">{item.event}</p>
-              </div>
-            </motion.div>
-          ))}
+        <motion.div key="roadmap" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+          className="w-full h-full">
+          <PolicyRoadmap />
         </motion.div>
       )}
 
       {activeStep === 2 && (
-        <motion.div key="mandate" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
-          <p className="gold-label">The Investor's Key Insight</p>
+        <motion.div key="mandate" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+          className="px-8 py-8 space-y-6">
+          <p className="gold-label">The first-mover window is narrow</p>
           <div className="border-l-2 border-gold pl-6">
             <p className="serif-body text-xl xl:text-2xl text-primary leading-relaxed">
-              "BESS adoption is not a bet we're making. It's being mandated from above by national energy policy."
+              "Storage adoption is not a bet we are making. It is being mandated from above."
             </p>
           </div>
           <p className="text-muted text-sm leading-relaxed">
-            Our SOM is conservative — the market is being legislated into existence. Every year that passes without a software layer is a year of compounding underperformance for Jordan's grid.
+            No MENA competitor operates commercially today. The regulations are live. The hardware is installed. The first software layer to connect them wins a market that cannot exist without it.
           </p>
         </motion.div>
       )}

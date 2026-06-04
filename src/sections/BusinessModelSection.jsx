@@ -7,16 +7,16 @@ import RevenueViz from '../components/viz/RevenueViz'
 
 const STEPS = [
   {
-    headline: "JOD 30 a month — and we only charge more when you save more",
-    body: "The subscription is JOD 30 per site per month, invoiced quarterly. For a commercial site with a large electricity bill, that is a rounding error — never a procurement conversation. On top of that, we take 10% of whatever we save them. If we don't save them anything, we don't charge extra. Simple, aligned, zero risk for the customer.",
+    headline: "JOD 30 a month. We only earn more when you save more.",
+    body: "A flat JOD 30 per site per month — never a budget conversation. On top of that, we take 10% of whatever we save the customer. If the saving doesn't materialise, the fee doesn't either. No risk for the customer. No misaligned incentives for us.",
   },
   {
-    headline: "The growth path is gradual — built on proof, not promises",
-    body: "We start with a handful of pilot sites, verify the savings, and let the results do the selling. The numbers at this stage are modest by design. We are building trust and a track record, not chasing revenue. Gross margins hold at around 74% whether we have 3 sites or 300 — because this is a software business.",
+    headline: "The 10% adds up fast once you see what a site actually saves",
+    body: "A typical large commercial site in Jordan saves JOD 400–1,200 per month by avoiding peak prices. Our 10% of that, plus the flat subscription, gives us JOD 70–150 per site per month. That is the unit economics. We need 1–3 sites in Year 1 to prove it, then the referrals do the rest.",
   },
   {
-    headline: 'Three ways this business grows over time',
-    body: "Right now: we help commercial sites save money on their peak electricity bills — no law changes needed. In a few years, as Jordan formalises its grid flexibility rules, we can aggregate those same batteries and get paid by the grid operator too. Longer term, the platform participates in energy markets directly. Each phase builds on the last.",
+    headline: "With or without NEPCO, this business works",
+    body: "On customer savings alone — profitable, defensible, growing from word of mouth. If NEPCO comes on board with grid services: each MW of aggregated batteries earns from the national grid too, and the revenue per site multiplies. We plan for the first path. The second is the upside.",
   },
 ]
 

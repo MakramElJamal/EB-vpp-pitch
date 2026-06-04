@@ -12,7 +12,7 @@ const STEPS = [
   },
   {
     headline: 'Zero upfront cost removes the procurement barrier',
-    body: 'Jordan\'s CFOs treat unproven capital commitments with extreme caution. A JOD 35 subscription that generates a first verified saving in Month 6 never reaches procurement committee. The 10% performance fee removes all remaining risk: if we don\'t save them money, we don\'t charge.',
+    body: "Jordan's CFOs treat unproven capital commitments with extreme caution. A JOD 30 monthly subscription that generates a first verified saving in Month 6 never reaches procurement committee. The 10% performance fee removes all remaining risk: if we don't save them money, we don't charge extra.",
   },
   {
     headline: 'Cultural capital that no foreign entrant can buy',
@@ -23,8 +23,8 @@ const STEPS = [
     body: 'Every additional site we connect improves the forecasting model for every other site in the portfolio. Load patterns, solar yield curves, grid frequency correlations — accuracy compounds with scale. A new entrant starts with none of it. That gap widens permanently, and capital alone cannot close it.',
   },
   {
-    headline: 'The NEPCO risk is manageable — and Phase 1 is immune',
-    body: 'Phase 1 is 100% behind the meter. NEPCO has no legal mechanism to block a customer optimising their own battery against their own published tariff. International precedent (AEMO, BNetzA, SP Group) shows incumbents cooperate once the grid-event case is undeniable. Jordan\'s curtailment problem is building that case right now.',
+    headline: "NEPCO can't block us — and we don't need them to succeed",
+    body: "Our core business is 100% behind the meter: a customer optimising their own battery against their own electricity bill. No regulator has a mechanism to block that. Grid services are the upside, not the plan.",
   },
 ]
 
