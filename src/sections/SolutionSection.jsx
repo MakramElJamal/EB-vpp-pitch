@@ -7,20 +7,20 @@ import SolutionDiagram from '../components/viz/SolutionDiagram'
 
 const STEPS = [
   {
-    headline: 'Software that finally makes the battery do its job',
-    body: "Every commercial site in Jordan with rooftop solar and a battery already has the hardware. What's missing is a brain — software that watches the electricity price, predicts tomorrow's sun and load, and automatically decides when to charge cheap and release during the expensive evening hours. That's us.",
+    headline: 'Step 1 — 5pm. Electricity gets 25% more expensive. Your battery should handle that.',
+    body: "Every day at 5pm, Jordan's electricity grid switches to peak pricing — 25% more expensive until 11pm. Every business with a solar panel and a battery should be fully charged by then, ready to power the building without touching the expensive grid. Most aren't. Because nobody set up the software to make it happen automatically.",
   },
   {
-    headline: 'We plug into what is already there',
-    body: "Jordan's commercial and industrial sites already have government-mandated smart meters installed on-site. We connect through those — no new hardware to purchase, no installation crews, no disruption to operations. We always give the customer a physical override: their site, their rules, their call.",
+    headline: 'Step 2 — We connect in a day, using what is already installed.',
+    body: "There is no new hardware to buy. Jordan's commercial sites already have smart meters installed. We connect through those, set up our scheduling software remotely, and hand the customer a physical off-switch. Their site, their rules — we just add the intelligence on top.",
   },
   {
-    headline: 'The scheduling brain that runs overnight, invisibly',
-    body: "Each evening our platform calculates the next day's optimal battery schedule — factoring in tomorrow's weather forecast, historical load patterns, and the exact tariff bands that kick in at 5pm. The battery just follows the plan. The CFO sees the verified saving on a monthly report.",
+    headline: 'Step 3 — Every night, our software plans tomorrow.',
+    body: "Our platform looks at tomorrow's weather forecast and your site's usual electricity patterns. It builds a simple plan: charge the battery during cheap daytime hours, stop drawing from the grid when the expensive window opens at 5pm. The battery follows the plan automatically. Nobody has to do anything.",
   },
   {
-    headline: 'Pure software. Zero new cost to the customer.',
-    body: "We are not selling hardware. We are not a utility. We are the missing software layer that makes existing equipment do what it was always supposed to do — reliably, automatically, every single day. The customer keeps everything they already own. We just make it smarter.",
+    headline: 'Step 4 — A saving appears on the bill. We take 10% of it.',
+    body: "At the end of each month we compare what the customer paid against what they would have paid without us. The difference is the verified saving. We charge JOD 30/month plus 10% of that saving. The rest stays in the customer's pocket — and they have a report that shows exactly why.",
   },
 ]
 

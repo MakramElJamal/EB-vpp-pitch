@@ -4,6 +4,7 @@ import ChapterNav from './components/layout/ChapterNav'
 import useScrollStore from './store/scrollStore'
 
 const Hero             = lazy(() => import('./sections/Hero'))
+const MoneySection     = lazy(() => import('./sections/MoneySection'))
 const ProblemSection   = lazy(() => import('./sections/ProblemSection'))
 const SolutionSection  = lazy(() => import('./sections/SolutionSection'))
 const TractionSection  = lazy(() => import('./sections/TractionSection'))
@@ -37,6 +38,7 @@ function DesktopApp() {
       <ChapterNav />
       <Suspense fallback={<Loader />}>
         <Hero />
+        <MoneySection />
         <ProblemSection />
         <SolutionSection />
         <TractionSection />

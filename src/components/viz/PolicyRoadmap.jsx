@@ -51,7 +51,7 @@ export default function PolicyRoadmap() {
       <div className="relative">
         {/* Track line */}
         <div className="absolute left-[18px] top-4 bottom-4 w-px"
-          style={{ background: 'linear-gradient(to bottom, #0D9488 60%, #E8A838)' }} />
+          style={{ background: 'linear-gradient(to bottom, #0B7070 60%, #B45309)' }} />
 
         <div className="space-y-3">
           {MILESTONES.map((m, i) => (
@@ -66,15 +66,15 @@ export default function PolicyRoadmap() {
                 {m.done ? (
                   <div className="w-9 h-9 rounded-xl flex items-center justify-center text-base"
                     style={{
-                      background: m.hot ? '#0D948820' : '#12121A',
-                      border: `1.5px solid ${m.hot ? '#0D9488' : '#1E2D2C'}`,
-                      boxShadow: m.hot ? '0 0 10px #0D948840' : 'none',
+                      background: m.hot ? '#0B707020' : '#12121A',
+                      border: `1.5px solid ${m.hot ? '#0B7070' : '#1E2D2C'}`,
+                      boxShadow: m.hot ? '0 0 10px #0B707040' : 'none',
                     }}>
                     {m.icon}
                   </div>
                 ) : (
                   <div className="w-9 h-9 rounded-xl flex items-center justify-center text-base"
-                    style={{ border: '1.5px dashed #E8A838', background: '#050810' }}>
+                    style={{ border: '1.5px dashed #B45309', background: '#050810' }}>
                     {m.icon}
                   </div>
                 )}
@@ -83,12 +83,12 @@ export default function PolicyRoadmap() {
               {/* Content */}
               <div className="flex-1 border border-border rounded-xl p-3 bg-surface min-w-0"
                 style={{
-                  borderColor: m.done ? (m.hot ? '#0D948830' : '#1A2040') : '#E8A83830',
-                  background: m.done ? (m.hot ? '#0D948808' : '#0C1022') : '#E8A83806',
+                  borderColor: m.done ? (m.hot ? '#0B707030' : '#1A2040') : '#B4530930',
+                  background: m.done ? (m.hot ? '#0B707008' : '#0C1022') : '#B4530906',
                 }}>
                 <div className="flex items-baseline gap-2 flex-wrap mb-0.5">
                   <span className="font-mono text-xs font-bold flex-shrink-0"
-                    style={{ color: m.done ? (m.hot ? '#0D9488' : '#7A84A8') : '#E8A838' }}>
+                    style={{ color: m.done ? (m.hot ? '#0B7070' : '#7A84A8') : '#B45309' }}>
                     {m.date}
                   </span>
                   <span className="text-primary text-xs font-semibold leading-snug">{m.title}</span>

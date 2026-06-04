@@ -3,15 +3,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg:      '#050810',
-        surface: '#0C1022',
-        border:  '#1A2040',
-        primary: '#F0F2FF',
-        muted:   '#7A84A8',
-        accent:  '#0D9488',
-        gold:    '#E8A838',
-        danger:  '#EF4444',
-        success: '#22C55E',
+        bg:      '#F8F6F2',   // warm cream
+        surface: '#FFFFFF',   // white cards
+        border:  '#E5E1DA',   // warm light border
+        primary: '#1C1917',   // near-black
+        muted:   '#78716C',   // warm gray
+        accent:  '#0B7070',   // deep teal (readable on light)
+        gold:    '#B45309',   // dark amber (readable on light)
+        danger:  '#B91C1C',
+        success: '#15803D',
       },
       fontFamily: {
         display: ['Clash Display', 'Space Grotesk', 'system-ui', 'sans-serif'],

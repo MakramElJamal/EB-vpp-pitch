@@ -47,7 +47,7 @@ export default function TariffChart({ activeStep }) {
       .attr('class', 'grid-line')
       .attr('x1', 0).attr('x2', iw)
       .attr('y1', d => y(d)).attr('y2', d => y(d))
-      .attr('stroke', '#1A2040').attr('stroke-width', 1)
+      .attr('stroke', '#E5E1DA').attr('stroke-width', 1)
 
     // Bars
     g.selectAll('.bar')
@@ -58,7 +58,7 @@ export default function TariffChart({ activeStep }) {
       .attr('y', ih)
       .attr('width', x.bandwidth())
       .attr('height', 0)
-      .attr('fill', d => d.peak ? '#E8A838' : '#0D9488')
+      .attr('fill', d => d.peak ? '#B45309' : '#0B7070')
       .attr('rx', 2)
       .transition().duration(800).delay((_, i) => i * 30)
       .attr('y', d => y(d.rate))
@@ -74,7 +74,7 @@ export default function TariffChart({ activeStep }) {
       .attr('y', -8)
       .attr('width', peakEnd - peakStart)
       .attr('height', 6)
-      .attr('fill', '#E8A838')
+      .attr('fill', '#B45309')
       .attr('rx', 2)
       .attr('opacity', 0.6)
 
@@ -84,7 +84,7 @@ export default function TariffChart({ activeStep }) {
       .attr('text-anchor', 'middle')
       .attr('font-size', '10px')
       .attr('font-family', 'DM Mono, monospace')
-      .attr('fill', '#E8A838')
+      .attr('fill', '#B45309')
       .text('PEAK 17:00–23:00 (+25%)')
 
     // X axis — show every 3 hours
@@ -95,22 +95,22 @@ export default function TariffChart({ activeStep }) {
       .attr('transform', `translate(0,${ih})`)
       .call(xAxis)
       .selectAll('text')
-      .attr('fill', '#7A84A8')
+      .attr('fill', '#78716C')
       .attr('font-size', '10px')
       .attr('font-family', 'DM Mono, monospace')
-    g.select('.domain').attr('stroke', '#1A2040')
-    g.selectAll('.tick line').attr('stroke', '#1A2040')
+    g.select('.domain').attr('stroke', '#E5E1DA')
+    g.selectAll('.tick line').attr('stroke', '#E5E1DA')
 
     // Y axis
     const yAxis = d3.axisLeft(y).ticks(4).tickFormat(d => `${(d * 100).toFixed(0)} fils`)
     g.append('g')
       .call(yAxis)
       .selectAll('text')
-      .attr('fill', '#7A84A8')
+      .attr('fill', '#78716C')
       .attr('font-size', '10px')
       .attr('font-family', 'DM Mono, monospace')
-    g.select('.domain').attr('stroke', '#1A2040')
-    g.selectAll('.tick line').attr('stroke', '#1A2040')
+    g.select('.domain').attr('stroke', '#E5E1DA')
+    g.selectAll('.tick line').attr('stroke', '#E5E1DA')
 
     // Savings annotation (step 1)
     if (activeStep === 1) {

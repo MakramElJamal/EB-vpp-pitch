@@ -8,15 +8,15 @@ import RevenueViz from '../components/viz/RevenueViz'
 const STEPS = [
   {
     headline: "JOD 30 a month. We only earn more when you save more.",
-    body: "A flat JOD 30 per site per month — never a budget conversation. On top of that, we take 10% of whatever we save the customer. If the saving doesn't materialise, the fee doesn't either. No risk for the customer. No misaligned incentives for us.",
+    body: "A flat JOD 30 per site per month — never a budget conversation. On top of that, we take 10% of whatever we save the customer on their electricity bill. If the saving doesn't materialise, the extra fee doesn't either. No risk for the customer. Fully aligned incentives for us.",
   },
   {
-    headline: "The 10% adds up fast once you see what a site actually saves",
-    body: "A typical large commercial site in Jordan saves JOD 400–1,200 per month by avoiding peak prices. Our 10% of that, plus the flat subscription, gives us JOD 70–150 per site per month. That is the unit economics. We need 1–3 sites in Year 1 to prove it, then the referrals do the rest.",
+    headline: "A typical site saves JOD 400–1,200 a month. We earn JOD 70–150 of that.",
+    body: "Commercial sites in Jordan spend JOD 5,000–15,000 per month on electricity. Avoiding peak prices saves them JOD 400–1,200 of that. Our 10% of those savings, plus the subscription, gives us JOD 70–150 per site per month — growing with the size of the site. We need 1–3 sites in Year 1 to prove it, then word of mouth does the rest.",
   },
   {
-    headline: "With or without NEPCO, this business works",
-    body: "On customer savings alone — profitable, defensible, growing from word of mouth. If NEPCO comes on board with grid services: each MW of aggregated batteries earns from the national grid too, and the revenue per site multiplies. We plan for the first path. The second is the upside.",
+    headline: "NEPCO is our next client — not a risk.",
+    body: "Jordan's national grid operator (NEPCO) needs to see and manage the thousands of batteries behind commercial meters. Right now, they can't. As our portfolio grows, we become the only platform that can show them those assets and coordinate them. That turns us from a software service for businesses into infrastructure for Jordan's energy grid — and a new revenue layer from a very different type of client.",
   },
 ]
 

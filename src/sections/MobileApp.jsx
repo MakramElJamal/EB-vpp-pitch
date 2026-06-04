@@ -73,6 +73,21 @@ export default function MobileApp() {
         </FadeUp>
       </MSection>
 
+      {/* Money interlude */}
+      <section className="dark-section px-5 py-16 flex flex-col gap-6 items-center text-center">
+        <FadeUp>
+          <p className="font-mono text-xs tracking-widest uppercase" style={{ color: '#4DD9C0' }}>Lost every month</p>
+        </FadeUp>
+        <FadeUp delay={0.1}>
+          <p className="display-heading font-bold" style={{ fontSize: '4rem', color: '#FFFFFF', lineHeight: 1 }}>JOD 43M</p>
+        </FadeUp>
+        <FadeUp delay={0.2}>
+          <p className="text-sm leading-relaxed max-w-xs" style={{ color: '#A8C8C8' }}>
+            82,780 commercial sites × 5 peak hours × 25% electricity premium — all missed because no software manages their batteries
+          </p>
+        </FadeUp>
+      </section>
+
       {/* Problem */}
       <MSection id="m-problem" accent>
         <FadeUp><p className="chapter-label">The Problem</p></FadeUp>

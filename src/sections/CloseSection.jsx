@@ -72,7 +72,7 @@ export default function CloseSection() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-        className="border-t border-border bg-gradient-to-b from-surface to-bg flex flex-col items-center justify-center px-8 py-24 text-center gap-8"
+        className="border-t border-border bg-gradient-to-b from-bg to-surface flex flex-col items-center justify-center px-8 py-24 text-center gap-8"
       >
         <p className="serif-body text-3xl md:text-4xl xl:text-5xl text-primary leading-relaxed max-w-3xl">
           "Jordan's batteries are charged."

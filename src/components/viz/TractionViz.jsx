@@ -3,8 +3,8 @@ import { useAnimatedCounter } from '../../hooks/useAnimatedCounter'
 import PolicyRoadmap from './PolicyRoadmap'
 
 const STATS = [
-  { value: 82780, unit: '', label: 'battery sites already installed\nwaiting for coordination', color: '#0D9488' },
-  { value: 25,    unit: '%', label: 'peak pricing premium\nexploitable right now', color: '#E8A838' },
+  { value: 82780, unit: '', label: 'battery sites already installed\nwaiting for coordination', color: '#0B7070' },
+  { value: 25,    unit: '%', label: 'peak pricing premium\nexploitable right now', color: '#B45309' },
   { value: 0,     unit: '', label: 'VPP competitors\noperating in MENA today', color: '#22C55E' },
 ]
 

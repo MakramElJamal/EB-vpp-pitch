@@ -19,7 +19,7 @@ function DisconnectedField() {
           <line key={`l${i}`}
             x1={`${d.cx}%`} y1={`${d.cy}%`}
             x2={`${t.cx}%`}  y2={`${t.cy}%`}
-            stroke="#0D9488" strokeWidth="0.25"
+            stroke="#0B7070" strokeWidth="0.25"
             strokeDasharray="1.5 5" opacity="0.18"
           />
         )
@@ -27,7 +27,7 @@ function DisconnectedField() {
 
       {/* Dots — each pulsing independently (no sync = no coordination) */}
       {dots.map((d, i) => (
-        <circle key={i} cx={`${d.cx}%`} cy={`${d.cy}%`} r={d.r} fill="#0D9488">
+        <circle key={i} cx={`${d.cx}%`} cy={`${d.cy}%`} r={d.r} fill="#0B7070">
           <animate attributeName="opacity"
             values="0.1;0.75;0.1"
             dur={`${d.dur}s`} begin={`${d.del}s`} repeatCount="indefinite" />
@@ -35,12 +35,12 @@ function DisconnectedField() {
       ))}
 
       {/* Central "missing link" ring */}
-      <circle cx="50%" cy="50%" r="9" fill="none" stroke="#E8A838"
+      <circle cx="50%" cy="50%" r="9" fill="none" stroke="#B45309"
         strokeWidth="0.6" strokeDasharray="2.5 3" opacity="0.5">
         <animate attributeName="opacity" values="0.25;0.7;0.25" dur="2.4s" repeatCount="indefinite" />
       </circle>
       <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle"
-        fontSize="4.5" fill="#E8A838" fontFamily="DM Mono" opacity="0.65">
+        fontSize="4.5" fill="#B45309" fontFamily="DM Mono" opacity="0.65">
         missing
       </text>
     </svg>
@@ -56,8 +56,8 @@ export default function InsightViz() {
 
       <div className="grid grid-cols-3 gap-2 text-center">
         {[
-          { val: '82,780', sub: 'sites installed', color: '#0D9488' },
-          { val: '1 GW', sub: 'solar capacity', color: '#0D9488' },
+          { val: '82,780', sub: 'sites installed', color: '#0B7070' },
+          { val: '1 GW', sub: 'solar capacity', color: '#0B7070' },
           { val: 'ZERO', sub: 'coordination layer', color: '#EF4444' },
         ].map((s, i) => (
           <motion.div key={i}

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: dark; }
+:root { color-scheme: light; }
 
 html {
   scroll-behavior: smooth;
@@ -10,8 +10,8 @@ html {
 }
 
 body {
-  background-color: #050810;
-  color: #F0F2FF;
+  background-color: #F8F6F2;
+  color: #1C1917;
   font-family: 'DM Sans', system-ui, sans-serif;
   overflow-x: hidden;
   line-height: 1.65;
@@ -24,7 +24,6 @@ body {
   align-items: center;
   padding: 4rem 2rem;
 }
-
 [data-step] h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.4; }
 [data-step] p  { font-size: clamp(0.9rem, 1.5vw, 1rem); line-height: 1.9; }
 
@@ -52,53 +51,52 @@ body {
 
 /* ── Step text fade ──────────────────────────────────────── */
 .step-text { transition: opacity 0.4s ease, transform 0.4s ease; max-width: 46ch; }
-.step-text.inactive { opacity: 0.25; transform: translateY(8px); }
-.step-text.active   { opacity: 1;    transform: translateY(0); }
+.step-text.inactive { opacity: 0.3; transform: translateY(8px); }
+.step-text.active   { opacity: 1;   transform: translateY(0); }
 
 /* ── Typography helpers ──────────────────────────────────── */
 .chapter-label {
   font-family: 'DM Mono', monospace;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #0D9488;
+  color: #0B7070;
 }
-
 .gold-label {
   font-family: 'DM Mono', monospace;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #E8A838;
+  color: #B45309;
 }
-
 .stat-number {
   font-family: 'DM Mono', monospace;
   font-variant-numeric: tabular-nums;
 }
-
 .display-heading {
   font-family: 'Clash Display', 'DM Sans', system-ui, sans-serif;
   font-weight: 700;
 }
-
 .serif-body {
   font-family: 'Instrument Serif', Georgia, serif;
 }
 
+/* ── Dark interlude (MoneySection, Hero) ─────────────────── */
+.dark-section {
+  background-color: #0D2626;
+  color: #F8F6F2;
+}
+.dark-section .chapter-label { color: #4DD9C0; }
+
 /* ── Animations ──────────────────────────────────────────── */
 @keyframes fadeInUp    { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes slideInLeft { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
-@keyframes pulse       { 0%, 100% { opacity: 0.4; transform: scale(0.95); } 50% { opacity: 0.9; transform: scale(1.05); } }
-@keyframes breathe     { 0%, 100% { opacity: 0.12; transform: scale(1); } 50% { opacity: 0.25; transform: scale(1.06); } }
-@keyframes scrollBounce { 0%, 100% { transform: translateY(0); opacity: 0.5; } 50% { transform: translateY(8px); opacity: 1; } }
-@keyframes gridMove    { from { transform: translateY(0); } to { transform: translateY(40px); } }
-@keyframes flowMove    { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -100; } }
+@keyframes scrollBounce { 0%,100% { transform: translateY(0); opacity:0.5; } 50% { transform: translateY(8px); opacity:1; } }
+@keyframes pulse       { 0%,100% { opacity:0.4; transform:scale(0.95); } 50% { opacity:0.9; transform:scale(1.05); } }
 
 /* ── Scrollbar ──────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: #050810; }
-::-webkit-scrollbar-thumb { background: #1A2040; border-radius: 2px; }
+::-webkit-scrollbar-track { background: #F8F6F2; }
+::-webkit-scrollbar-thumb { background: #E5E1DA; border-radius: 2px; }
 
 /* ── Reduced motion ─────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {

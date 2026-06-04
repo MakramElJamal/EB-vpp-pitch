@@ -1,76 +1,57 @@
 import { motion } from 'framer-motion'
 
-const LAYERS = [
+const STEPS = [
   {
-    id: 'asset',
-    label: 'Asset Layer',
-    sublabel: "Customer's existing PV + BESS + inverter",
-    why: "We don't sell hardware — zero CAPEX friction",
-    color: '#E8A838',
+    n: '01',
+    label: 'What the customer already owns',
+    desc: 'Solar panels + battery + inverter — already installed, already paid for. We activate it.',
+    color: '#B45309',
     icon: '⚡',
-    icons: ['☀️', '🔋', '🔌'],
   },
   {
-    id: 'edge',
-    label: 'Connection Layer',
-    sublabel: "Connects through government-installed smart meters already on site",
-    why: "No new hardware needed — customer keeps physical override at all times",
-    color: '#60A5FA',
+    n: '02',
+    label: 'Smart meters (already on site)',
+    desc: "Government-mandated meters already installed. We connect through these — no new hardware, no installation team.",
+    color: '#0B7070',
     icon: '📡',
-    icons: ['📡', '🖥️', '🔒'],
   },
   {
-    id: 'platform',
-    label: 'Platform Layer',
-    sublabel: 'Cloud dispatch engine — forecasts load & solar',
-    why: 'The intelligence layer that doesn\'t exist today',
-    color: '#0D9488',
-    icon: '☁️',
-    icons: ['☁️', '⚙️', '📊'],
+    n: '03',
+    label: 'Our scheduling software',
+    desc: 'Plans each day\'s battery schedule overnight. Charges cheap. Releases at 5pm. Runs automatically.',
+    color: '#0B7070',
+    icon: '🧠',
   },
   {
-    id: 'customer',
-    label: 'Customer Layer',
-    sublabel: 'Web dashboard + automated monthly JOD savings report',
-    why: 'Makes the value undeniable and defensible to the CFO',
-    color: '#22C55E',
-    icon: '📈',
-    icons: ['📱', '📋', '✅'],
+    n: '04',
+    label: 'Monthly savings report',
+    desc: 'The CFO sees exactly how much was saved, verified against the real bill. We take 10% of that.',
+    color: '#15803D',
+    icon: '📋',
   },
 ]
 
 export default function SolutionDiagram({ visibleLayers = 4 }) {
   return (
-    <div className="w-full max-w-2xl mx-auto px-6 py-10 space-y-3">
-      {LAYERS.slice(0, visibleLayers).map((layer, i) => (
+    <div className="w-full max-w-xl mx-auto px-6 py-8 space-y-3">
+      <p className="chapter-label mb-5">How it works — four steps</p>
+
+      {STEPS.slice(0, visibleLayers).map((step, i) => (
         <motion.div
-          key={layer.id}
-          initial={{ opacity: 0, x: -24 }}
+          key={step.n}
+          initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="border rounded-xl p-5 flex gap-4 items-start"
-          style={{
-            borderColor: layer.color + '40',
-            background: `linear-gradient(135deg, ${layer.color}08, transparent)`,
-          }}
+          transition={{ duration: 0.45, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+          className="flex gap-4 items-start border border-border rounded-xl p-4 bg-surface shadow-sm"
+          style={{ borderLeftWidth: '3px', borderLeftColor: step.color }}
         >
-          <div
-            className="text-2xl w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0"
-            style={{ background: layer.color + '20' }}
-          >
-            {layer.icon}
+          <div className="flex-shrink-0 flex flex-col items-center gap-1">
+            <span className="text-xl">{step.icon}</span>
+            <span className="font-mono text-xs font-bold" style={{ color: step.color }}>{step.n}</span>
           </div>
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 mb-1">
-              <span
-                className="text-xs font-mono uppercase tracking-widest"
-                style={{ color: layer.color }}
-              >
-                {layer.label}
-              </span>
-            </div>
-            <p className="text-primary text-sm font-medium mb-1">{layer.sublabel}</p>
-            <p className="text-muted text-xs leading-relaxed">{layer.why}</p>
+          <div>
+            <p className="text-primary text-sm font-semibold mb-0.5">{step.label}</p>
+            <p className="text-muted text-xs leading-relaxed">{step.desc}</p>
           </div>
         </motion.div>
       ))}
@@ -79,11 +60,12 @@ export default function SolutionDiagram({ visibleLayers = 4 }) {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.5 }}
-          className="mt-4 p-4 border border-accent/20 rounded-lg bg-accent/5 text-center"
+          transition={{ delay: 0.7 }}
+          className="mt-3 p-4 rounded-xl text-center"
+          style={{ background: '#0B707010', border: '1px solid #0B707030' }}
         >
-          <p className="text-accent text-sm font-medium">
-            "We are the software layer that makes existing hardware perform as originally promised."
+          <p className="text-sm font-medium" style={{ color: '#0B7070' }}>
+            "Zero new hardware. Zero upfront cost. The customer just pays when they save."
           </p>
         </motion.div>
       )}
