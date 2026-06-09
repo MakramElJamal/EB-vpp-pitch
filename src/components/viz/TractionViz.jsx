@@ -1,34 +1,50 @@
 import { motion } from 'framer-motion'
-import { useAnimatedCounter } from '../../hooks/useAnimatedCounter'
 import PolicyRoadmap from './PolicyRoadmap'
-
-const STATS = [
-  { value: 82780, unit: '', label: 'battery sites already installed\nwaiting for coordination', color: '#0B7070' },
-  { value: 25,    unit: '%', label: 'peak pricing premium\nexploitable right now', color: '#B45309' },
-  { value: 0,     unit: '', label: 'VPP competitors\noperating in MENA today', color: '#22C55E' },
-]
-
-function AnimStat({ value, unit, label, color, animate }) {
-  const count = useAnimatedCounter(value, 1400, animate)
-  return (
-    <div className="flex flex-col gap-2 text-center">
-      <span className="stat-number font-bold" style={{ fontSize: 'clamp(2.5rem,5vw,4rem)', color }}>
-        {count.toLocaleString()}{unit}
-      </span>
-      <span className="text-muted text-sm leading-snug whitespace-pre-line">{label}</span>
-    </div>
-  )
-}
 
 export default function TractionViz({ activeStep }) {
   return (
     <div className="w-full h-full flex flex-col justify-center">
       {activeStep === 0 && (
         <motion.div key="stats" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          className="px-8 py-8 space-y-8">
-          <p className="chapter-label">Every condition for this to work is already met</p>
-          <div className="grid grid-cols-1 gap-8">
-            {STATS.map((s, i) => <AnimStat key={i} {...s} animate />)}
+          className="px-8 py-8 space-y-7">
+
+          {/* Hero number */}
+          <div className="text-center">
+            <p className="chapter-label mb-3">VPP competitors operating in MENA today</p>
+            <p className="stat-number font-bold leading-none" style={{ fontSize: 'clamp(5rem,11vw,7.5rem)', color: '#22C55E' }}>
+              0
+            </p>
+            <p className="text-muted text-sm mt-3 max-w-xs mx-auto leading-relaxed">
+              No commercial operator. No reference customer. No established relationship.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <div className="flex-1 h-px bg-border" />
+            <span className="font-mono text-xs text-muted">why we fill it first</span>
+            <div className="flex-1 h-px bg-border" />
+          </div>
+
+          {/* Competitive advantages */}
+          <div className="space-y-2.5">
+            {[
+              { icon: '🎯', label: 'Built for Jordan\'s exact rules', note: 'Any international competitor entering MENA would rebuild their entire software stack to match EMRC tariffs. We already did.' },
+              { icon: '✅', label: 'Legal to operate today — no approval needed', note: 'Behind-the-meter optimisation is fully permitted. We don\'t need a regulatory relationship to get the first customer.' },
+              { icon: '🏆', label: 'First verified saving is permanent capital', note: 'Industrial buyers in Jordan trust one thing: a peer who says it worked. That reference can\'t be bought back.' },
+            ].map((adv, i) => (
+              <motion.div key={i}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.15 + i * 0.1 }}
+                className="flex gap-3 items-start border border-border rounded-xl p-3.5 bg-surface shadow-sm"
+              >
+                <span className="text-base flex-shrink-0 mt-0.5">{adv.icon}</span>
+                <div>
+                  <p className="text-primary text-sm font-semibold leading-snug mb-0.5">{adv.label}</p>
+                  <p className="text-muted text-xs leading-relaxed">{adv.note}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       )}
