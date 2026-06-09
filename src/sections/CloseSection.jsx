@@ -100,10 +100,10 @@ export default function CloseSection() {
         className="border-t border-border bg-gradient-to-b from-bg to-surface flex flex-col items-center justify-center px-8 py-24 text-center gap-8"
       >
         <p className="serif-body text-3xl md:text-4xl xl:text-5xl text-primary leading-relaxed max-w-3xl">
-          "Jordan's batteries are charged."
+          Jordan's batteries are charged.
         </p>
         <p className="serif-body text-2xl md:text-3xl xl:text-4xl text-gold leading-relaxed max-w-3xl">
-          "They just need someone to tell them when to fire."
+          They just need someone to tell them when to fire.
         </p>
 
         <div className="mt-8 flex flex-col items-center gap-2">
