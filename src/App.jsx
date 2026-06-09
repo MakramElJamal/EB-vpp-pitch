@@ -4,8 +4,9 @@ import useScrollStore from './store/scrollStore'
 
 const Hero             = lazy(() => import('./sections/Hero'))
 const MoneySection     = lazy(() => import('./sections/MoneySection'))
-const ProblemSection   = lazy(() => import('./sections/ProblemSection'))
-const SolutionSection  = lazy(() => import('./sections/SolutionSection'))
+const ProblemSection      = lazy(() => import('./sections/ProblemSection'))
+const OpportunitySection  = lazy(() => import('./sections/OpportunitySection'))
+const SolutionSection     = lazy(() => import('./sections/SolutionSection'))
 const TractionSection  = lazy(() => import('./sections/TractionSection'))
 const BusinessModelSection = lazy(() => import('./sections/BusinessModelSection'))
 const MoatSection      = lazy(() => import('./sections/MoatSection'))
@@ -38,6 +39,7 @@ function DesktopApp() {
         <Hero />
         <MoneySection />
         <ProblemSection />
+        <OpportunitySection />
         <SolutionSection />
         <TractionSection />
         <BusinessModelSection />

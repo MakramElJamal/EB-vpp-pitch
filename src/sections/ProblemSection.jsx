@@ -5,7 +5,6 @@ import ScrollStep from '../components/layout/ScrollStep'
 import useScrollStore from '../store/scrollStore'
 import TariffChart from '../components/viz/TariffChart'
 import GridStatsViz from '../components/viz/GridStatsViz'
-import InsightViz from '../components/viz/InsightViz'
 
 const STEPS = [
   {
@@ -23,10 +22,6 @@ const STEPS = [
   {
     headline: "The grid operator has the same problem, scaled to a country",
     body: "NEPCO must reach 50% renewable energy by 2030 — it currently sits at 26.9%. Thousands of batteries sit behind customer meters, completely invisible to grid control. Every battery that runs on autopilot is a resource the national grid cannot use, in a country that imports 90% of its energy.",
-  },
-  {
-    headline: "The opportunity hiding in plain sight",
-    body: "Every factory, hotel, and hospital that installed battery storage since it became legal two years ago now has the asset sitting largely idle. Those batteries are sleeping during the exact hours that matter. This is not a hardware problem. It never was.",
   },
 ]
 
@@ -52,7 +47,6 @@ export default function ProblemSection() {
       case 1: return <TariffChart variant="real" />
       case 2: return <TariffChart variant="real" showSavings />
       case 3: return <GridStatsViz activeStep={1} />
-      case 4: return <InsightViz />
       default: return <TariffChart variant="flat" />
     }
   }
