@@ -13,7 +13,7 @@ const STEPS = [
     body: "Every CFO who bought a battery was shown the same model: a fixed monthly saving from avoided grid import, paid back in 4 years. That calculation assumes electricity costs roughly the same at 2pm and at 7pm. It made sense at the time. Then the rules changed.",
   },
   {
-    headline: "They don't. Jordan switched to peak pricing in July 2024.",
+    headline: "Jordan switched to peak pricing in July 2024 — electricity now costs 34% more from 5pm to 11pm.",
     body: "Between 5pm and 11pm, electricity now costs 34% more than during the rest of the day. Every battery should be fully charged right before that window opens — then run the site through it without touching the expensive grid. Most batteries don't do this. The CFO's 4-year payback is quietly slipping.",
   },
   {
