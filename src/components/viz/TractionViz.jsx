@@ -7,15 +7,13 @@ export default function TractionViz({ activeStep }) {
     <div className="w-full h-full flex flex-col justify-center">
       {activeStep === 0 && (
         <motion.div key="map" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          className="w-full h-full flex flex-col px-6 pt-6 pb-4 gap-3">
+          className="w-full h-full flex flex-col items-center px-6 pt-5 pb-4 gap-2">
 
-          {/* Compact 0-competitor banner */}
-          <div className="flex items-center gap-4 flex-shrink-0">
-            <p className="stat-number font-bold leading-none" style={{ fontSize: '3.8rem', color: '#22C55E' }}>0</p>
-            <div>
-              <p className="text-primary text-sm font-semibold">VPP competitors in MENA today</p>
-              <p className="text-muted text-xs">No commercial operator. No reference customer.</p>
-            </div>
+          {/* Compact 0-competitor banner — centered */}
+          <div className="flex-shrink-0 text-center">
+            <p className="stat-number font-bold leading-none" style={{ fontSize: '3.2rem', color: '#22C55E' }}>0</p>
+            <p className="text-primary text-sm font-semibold mt-0.5">VPP competitors in MENA today</p>
+            <p className="text-muted text-xs">No commercial operator. No reference customer.</p>
           </div>
 
           {/* Positioning map */}
