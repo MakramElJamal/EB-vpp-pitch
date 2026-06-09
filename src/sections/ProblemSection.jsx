@@ -86,13 +86,70 @@ export default function ProblemSection() {
 
           {STEPS.map((step, i) => (
             <ScrollStep key={i} isActive={activeStep === i} className="px-8 lg:px-12 py-16">
-              <div className="space-y-4 max-w-lg">
-                <p className="font-mono text-xs text-accent">
-                  {String(i + 1).padStart(2, '0')} / {STEPS.length}
-                </p>
-                <h3 className="text-xl font-semibold text-primary leading-snug">{step.headline}</h3>
-                <p className="text-muted leading-relaxed">{step.body}</p>
-              </div>
+              {i === 3 ? (
+                /* ── NEPCO step: visual layout ── */
+                <div className="space-y-5 max-w-lg">
+                  <p className="font-mono text-xs text-accent">04 / {STEPS.length}</p>
+                  <h3 className="text-xl font-semibold text-primary leading-snug">
+                    Jordan needs to double its renewable share by 2030. The batteries to help do it are already deployed.
+                  </h3>
+
+                  {/* Import dependency */}
+                  <div className="flex items-center gap-3 rounded-xl px-4 py-3"
+                    style={{ border: '1px solid #FCA5A540', background: '#FEF2F210' }}>
+                    <span className="text-2xl flex-shrink-0">⚡</span>
+                    <div>
+                      <p className="text-sm font-bold" style={{ color: '#B91C1C' }}>90% of Jordan's electricity is imported</p>
+                      <p className="text-xs text-muted">Grid stability is a national security concern</p>
+                    </div>
+                  </div>
+
+                  {/* Renewable gap progress bar */}
+                  <div className="rounded-xl border border-border bg-surface px-4 py-4 space-y-2">
+                    <div className="flex justify-between text-xs mb-1">
+                      <span className="text-muted">Renewable energy share</span>
+                      <span className="font-semibold" style={{ color: '#B91C1C' }}>23 percentage points short</span>
+                    </div>
+                    <div className="relative h-4 rounded-full" style={{ background: '#F1F0ED' }}>
+                      {/* Current share */}
+                      <div className="absolute left-0 top-0 h-full rounded-l-full"
+                        style={{ width: '26.9%', background: '#0B7070' }} />
+                      {/* Gap to target — highlighted */}
+                      <div className="absolute top-0 h-full"
+                        style={{ left: '26.9%', width: '23.1%', background: '#FEE2E2' }} />
+                      {/* Target marker */}
+                      <div className="absolute top-0 h-full w-0.5 rounded"
+                        style={{ left: '50%', background: '#B91C1C' }} />
+                    </div>
+                    <div className="flex justify-between text-xs font-mono font-bold">
+                      <span style={{ color: '#0B7070' }}>26.9% today</span>
+                      <span style={{ color: '#B91C1C' }}>50% by 2030</span>
+                    </div>
+                  </div>
+
+                  {/* Hidden battery resource */}
+                  <div className="flex items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3">
+                    <span className="text-2xl flex-shrink-0">🔋</span>
+                    <div>
+                      <p className="text-sm font-semibold text-primary">82,780 batteries across Jordan</p>
+                      <p className="text-xs text-muted">Zero are visible to NEPCO's grid management system</p>
+                    </div>
+                  </div>
+
+                  <p className="text-sm font-semibold text-primary">
+                    The hardware problem is solved. The software problem isn't.
+                  </p>
+                </div>
+              ) : (
+                /* ── Generic step layout ── */
+                <div className="space-y-4 max-w-lg">
+                  <p className="font-mono text-xs text-accent">
+                    {String(i + 1).padStart(2, '0')} / {STEPS.length}
+                  </p>
+                  <h3 className="text-xl font-semibold text-primary leading-snug">{step.headline}</h3>
+                  <p className="text-muted leading-relaxed">{step.body}</p>
+                </div>
+              )}
             </ScrollStep>
           ))}
 
