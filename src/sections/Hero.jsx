@@ -40,7 +40,7 @@ export default function Hero() {
         >
           Jordan has{' '}
           <span style={{ color: '#0B7070' }}>82,780</span>{' '}
-          rooftop solar systems.
+          decentralized solar systems.
         </motion.h1>
 
         {/* Sub-headline */}

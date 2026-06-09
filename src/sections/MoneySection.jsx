@@ -1,48 +1,118 @@
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { useAnimatedCounter } from '../hooks/useAnimatedCounter'
+
+// Two-phase counter: races to 93% of target, then crawls dramatically to the end
+function useDramaticCounter(target, enabled) {
+  const [value, setValue] = useState(0)
+  const rafRef = useRef(null)
+
+  useEffect(() => {
+    if (!enabled) { setValue(target); return }
+    setValue(0)
+
+    const TOTAL    = 3800     // ms — total animation
+    const SPLIT    = 0.72     // first 72% of time covers 93% of value
+    const fastEnd  = Math.round(target * 0.93)
+    const start    = performance.now()
+
+    const tick = (now) => {
+      const elapsed = Math.min(now - start, TOTAL)
+      const rel     = elapsed / TOTAL
+
+      let current
+      if (rel <= SPLIT) {
+        // Phase 1 — fast, quadratic ease-out
+        const t = rel / SPLIT
+        current = Math.round(fastEnd * (1 - Math.pow(1 - t, 2)))
+      } else {
+        // Phase 2 — dramatic crawl, quintic ease-out
+        const t = (rel - SPLIT) / (1 - SPLIT)
+        current = Math.round(fastEnd + (target - fastEnd) * (1 - Math.pow(1 - t, 5)))
+      }
+
+      setValue(Math.min(current, target))
+      if (elapsed < TOTAL) rafRef.current = requestAnimationFrame(tick)
+      else setValue(target)
+    }
+
+    rafRef.current = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(rafRef.current)
+  }, [target, enabled])
+
+  return value
+}
 
 const INPUTS = [
   { value: '82,780', label: 'solar installations', sub: 'residential, commercial & industrial across Jordan' },
-  { value: '×  5h', label: 'peak hours daily', sub: '5pm–11pm when grid prices spike' },
-  { value: '×  25%', label: 'avg. wasted premium', sub: 'conservative estimate — actual tariff gap is 34%' },
+  { value: '×  5h',  label: 'peak hours daily',   sub: '5pm–11pm when grid prices spike' },
+  { value: '×  25%', label: 'avg. wasted premium', sub: 'conservative — actual tariff gap is 34%' },
 ]
 
-function BigCounter() {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, amount: 0.5 })
-  const count = useAnimatedCounter(43000000, 2000, inView)
-
-  return (
-    <div ref={ref} className="text-center">
-      <p className="font-mono text-sm tracking-widest uppercase mb-4" style={{ color: '#4DD9C0' }}>
-        Lost every month across Jordan
-      </p>
-      <div className="flex items-baseline justify-center gap-3">
-        <span className="font-mono font-bold" style={{ fontSize: 'clamp(1.8rem,4vw,3rem)', color: '#4DD9C0' }}>
-          JOD
-        </span>
-        <span className="display-heading" style={{ fontSize: 'clamp(4rem,12vw,9rem)', color: '#FFFFFF', lineHeight: 1 }}>
-          {count >= 1000000
-            ? `${(count / 1000000).toFixed(count >= 10000000 ? 0 : 1)}M`
-            : count.toLocaleString()}
-        </span>
-      </div>
-      <p className="text-lg mt-4 max-w-xl mx-auto" style={{ color: '#A8C8C8' }}>
-        because solar installations across Jordan are running their batteries
-        on autopilot — missing 5 expensive hours every single day
-      </p>
-    </div>
-  )
-}
-
 export default function MoneySection() {
+  const ref    = useRef(null)
+  const inView = useInView(ref, { once: true, amount: 0.4 })
+  const count  = useDramaticCounter(43000000, inView)
+
   return (
-    <section className="dark-section w-full py-24 px-8 md:px-16 lg:px-24 flex flex-col items-center gap-16">
+    <section className="dark-section w-full py-28 px-8 md:px-16 lg:px-24 flex flex-col items-center gap-20">
 
-      <BigCounter />
+      {/* ── Hero hook ── */}
+      <div ref={ref} className="text-center">
 
-      {/* Equation breakdown */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="font-mono text-sm tracking-[0.22em] uppercase mb-8"
+          style={{ color: '#4DD9C0' }}
+        >
+          lost every month, across jordan
+        </motion.p>
+
+        {/* Currency label */}
+        <p className="font-mono font-bold mb-1"
+          style={{ fontSize: 'clamp(1.3rem,2.8vw,2rem)', color: '#4DD9C0', letterSpacing: '0.05em' }}>
+          JOD
+        </p>
+
+        {/* Big number — full digits, no M abbreviation */}
+        <p className="display-heading"
+          style={{
+            fontSize:            'clamp(3.5rem, 10vw, 8rem)',
+            color:               '#FFFFFF',
+            lineHeight:          1,
+            letterSpacing:       '-0.02em',
+            fontVariantNumeric:  'tabular-nums',
+            fontFamily:          "'DM Mono', monospace",
+          }}>
+          {count.toLocaleString()}
+        </p>
+
+        {/* "lost." — the hook word */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="display-heading mt-4"
+          style={{ fontSize: 'clamp(1.6rem,3.5vw,2.8rem)', color: '#E8C87E', lineHeight: 1.1 }}>
+          wasted.
+        </motion.p>
+
+        {/* Sub description */}
+        <motion.p
+          initial={{ opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.55 }}
+          className="mt-7 max-w-2xl mx-auto leading-relaxed"
+          style={{ fontSize: 'clamp(1rem,1.6vw,1.2rem)', color: '#A8C8C8' }}>
+          because solar installations across Jordan are running their batteries
+          on autopilot — missing 5 expensive hours every single day
+        </motion.p>
+      </div>
+
+      {/* ── Equation breakdown ── */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -50,7 +120,8 @@ export default function MoneySection() {
         transition={{ duration: 0.7 }}
         className="w-full max-w-4xl"
       >
-        <p className="font-mono text-xs tracking-widest uppercase text-center mb-8" style={{ color: '#4DD9C0' }}>
+        <p className="font-mono text-xs tracking-widest uppercase text-center mb-8"
+          style={{ color: '#4DD9C0' }}>
           How we calculated this
         </p>
         <div className="grid md:grid-cols-3 gap-4">
@@ -72,25 +143,10 @@ export default function MoneySection() {
           ))}
         </div>
 
-        {/* Equals line */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="text-center mt-8"
-        >
-          <div className="inline-flex items-center gap-4 rounded-xl px-8 py-4"
-            style={{ background: 'rgba(11,112,112,0.3)', border: '1px solid rgba(77,217,192,0.3)' }}>
-            <span className="font-mono text-sm" style={{ color: '#4DD9C0' }}>= </span>
-            <span className="stat-number font-bold text-2xl" style={{ color: '#FFFFFF' }}>JOD 43,000,000</span>
-            <span className="text-sm" style={{ color: '#A8C8C8' }}>wasted every month</span>
-          </div>
-          <p className="mt-6 text-sm max-w-lg mx-auto" style={{ color: '#7AA8A8' }}>
-            The hardware is already there. The money is already on the table.
-            The only missing piece is the software layer that captures it.
-          </p>
-        </motion.div>
+        <p className="text-center mt-8 text-sm" style={{ color: '#4AA8A8' }}>
+          The hardware is already there. The money is already on the table.
+          The only missing piece is the software that captures it.
+        </p>
       </motion.div>
     </section>
   )

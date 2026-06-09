@@ -9,8 +9,8 @@ import InsightViz from '../components/viz/InsightViz'
 
 const STEPS = [
   {
-    headline: "The CFO approved the battery. His spreadsheet assumed prices don't change.",
-    body: "Every CFO who bought a battery was shown the same model: a fixed monthly saving from avoided grid import, paid back in 4 years. That calculation assumes electricity costs roughly the same at 2pm and at 7pm. It made sense at the time. Then the rules changed.",
+    headline: "Thousands of batteries were installed on a calculation that no longer holds.",
+    body: "Store solar energy. Use it instead of buying from the grid. Pocket the difference. The logic was simple — and it was right. Every rooftop installation in Jordan was built around it. Then, in July 2024, Jordan switched to time-of-use pricing. Nobody updated the math. The battery works perfectly. The calculation doesn't.",
   },
   {
     headline: "Jordan switched to peak pricing in July 2024 — electricity now costs 34% more from 5pm to 11pm.",
