@@ -64,8 +64,8 @@ export default function SolutionDiagram({ visibleLayers = 4 }) {
           className="mt-3 p-4 rounded-xl text-center"
           style={{ background: '#0B707010', border: '1px solid #0B707030' }}
         >
-          <p className="text-sm font-medium" style={{ color: '#0B7070' }}>
-            "Minimal setup. The customer just pays when they save."
+          <p className="text-sm font-medium leading-relaxed" style={{ color: '#0B7070' }}>
+            "The first saving appears on next month's electricity bill. That's the only proof they need."
           </p>
         </motion.div>
       )}

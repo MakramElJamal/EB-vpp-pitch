@@ -1,6 +1,5 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { useIsMobile } from './hooks/useIsMobile'
-import ChapterNav from './components/layout/ChapterNav'
 import useScrollStore from './store/scrollStore'
 
 const Hero             = lazy(() => import('./sections/Hero'))
@@ -35,7 +34,6 @@ function DesktopApp() {
 
   return (
     <div className="bg-bg text-primary min-h-screen">
-      <ChapterNav />
       <Suspense fallback={<Loader />}>
         <Hero />
         <MoneySection />

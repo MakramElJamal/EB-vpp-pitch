@@ -1,83 +1,88 @@
 import { motion } from 'framer-motion'
 
-function DisconnectedField() {
-  const dots = Array.from({ length: 55 }, (_, i) => ({
-    cx: 4 + ((i * 13337 + i * i * 7) % 92),
-    cy: 8 + ((i * 7919 + i * 31) % 84),
-    r:  1.2 + (i % 4) * 0.5,
-    dur: 1.4 + (i % 6) * 0.35,
-    del: (i % 13) * 0.25,
-  }))
-
-  return (
-    <svg viewBox="0 0 100 100" className="w-full" style={{ height: 200 }}
-      role="img" aria-label="Disconnected battery sites across Jordan">
-      {/* Faint connection attempts — broken dashes */}
-      {dots.slice(0, 18).map((d, i) => {
-        const t = dots[(i + 9) % 28]
-        return (
-          <line key={`l${i}`}
-            x1={`${d.cx}%`} y1={`${d.cy}%`}
-            x2={`${t.cx}%`}  y2={`${t.cy}%`}
-            stroke="#0B7070" strokeWidth="0.25"
-            strokeDasharray="1.5 5" opacity="0.18"
-          />
-        )
-      })}
-
-      {/* Dots — each pulsing independently (no sync = no coordination) */}
-      {dots.map((d, i) => (
-        <circle key={i} cx={`${d.cx}%`} cy={`${d.cy}%`} r={d.r} fill="#0B7070">
-          <animate attributeName="opacity"
-            values="0.1;0.75;0.1"
-            dur={`${d.dur}s`} begin={`${d.del}s`} repeatCount="indefinite" />
-        </circle>
-      ))}
-
-      {/* Central "missing link" ring */}
-      <circle cx="50%" cy="50%" r="9" fill="none" stroke="#B45309"
-        strokeWidth="0.6" strokeDasharray="2.5 3" opacity="0.5">
-        <animate attributeName="opacity" values="0.25;0.7;0.25" dur="2.4s" repeatCount="indefinite" />
-      </circle>
-      <text x="50%" y="50%" textAnchor="middle" dominantBaseline="middle"
-        fontSize="4.5" fill="#B45309" fontFamily="DM Mono" opacity="0.65">
-        missing
-      </text>
-    </svg>
-  )
-}
+const HOUR_COLORS = Array.from({ length: 24 }, (_, h) => {
+  if (h >= 17 && h <= 22) return '#B45309'
+  if ((h >= 14 && h <= 16) || h === 23 || h <= 4) return '#D97706'
+  return '#0B7070'
+})
 
 export default function InsightViz() {
   return (
-    <div className="w-full h-full flex flex-col justify-center px-8 py-6 gap-5">
-      <p className="gold-label">What is sitting idle right now</p>
-
-      <DisconnectedField />
-
-      <div className="grid grid-cols-3 gap-2 text-center">
-        {[
-          { val: '82,780', sub: 'sites installed', color: '#0B7070' },
-          { val: '1 GW', sub: 'solar capacity', color: '#0B7070' },
-          { val: 'ZERO', sub: 'coordination layer', color: '#EF4444' },
-        ].map((s, i) => (
-          <motion.div key={i}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.15 }}
-            className="border border-border rounded-lg p-3 bg-surface"
-          >
-            <p className="stat-number font-bold text-lg leading-none" style={{ color: s.color }}>{s.val}</p>
-            <p className="text-muted text-xs mt-1">{s.sub}</p>
-          </motion.div>
-        ))}
+    <div className="w-full h-full flex flex-col justify-center px-8 py-6 gap-7">
+      <div>
+        <p className="gold-label mb-2">The daily pattern — 82,780 sites, same story</p>
+        <p className="text-primary text-base font-medium leading-snug">
+          Every day at 17:00, a 6-hour window opens.<br />
+          Every battery should be ready for it.
+        </p>
       </div>
 
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
-        className="border border-gold/20 rounded-lg p-4 bg-gold/5">
-        <p className="text-gold text-sm font-medium">The hardware is charged and ready.</p>
-        <p className="text-muted text-xs mt-1 leading-relaxed">
-          No software exists to tell it when to fire. That is the entire gap — and it is ours to fill.
-        </p>
+      {/* 24-hour bar */}
+      <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+        <div className="flex gap-px rounded-md overflow-hidden" style={{ height: 28 }}>
+          {HOUR_COLORS.map((c, h) => (
+            <div key={h} className="flex-1 relative group" style={{ background: c + '55' }}>
+              {/* Highlight peak */}
+              {h >= 17 && h <= 22 && (
+                <div className="absolute inset-0" style={{ background: c }} />
+              )}
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-between mt-1">
+          <span className="font-mono text-muted" style={{ fontSize: '0.65rem' }}>00:00</span>
+          <span className="font-mono" style={{ fontSize: '0.65rem', color: '#B45309' }}>17:00 →</span>
+          <span className="font-mono" style={{ fontSize: '0.65rem', color: '#B45309' }}>← 23:00</span>
+          <span className="font-mono text-muted" style={{ fontSize: '0.65rem' }}>24:00</span>
+        </div>
+      </motion.div>
+
+      {/* What should happen vs reality */}
+      <div className="space-y-3">
+        <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }}
+          className="border rounded-xl p-4 bg-surface shadow-sm"
+          style={{ borderColor: '#0B707030', borderLeftWidth: 3, borderLeftColor: '#0B7070' }}>
+          <p className="font-mono text-xs font-bold mb-1" style={{ color: '#0B7070' }}>OPTIMAL — what should happen</p>
+          <div className="flex items-center gap-3">
+            <div className="flex-1">
+              <div className="flex items-center gap-1 mb-1">
+                <div className="h-2.5 rounded-full flex-1" style={{ background: 'linear-gradient(90deg, #0B7070 60%, #B4530940 60%)' }} />
+              </div>
+              <p className="text-muted text-xs">Charge during cheap hours → full at 17:00 → run site through peak</p>
+            </div>
+            <div className="flex-shrink-0 text-center">
+              <p className="stat-number text-lg font-bold" style={{ color: '#0B7070' }}>100%</p>
+              <p className="font-mono text-xs text-muted">at 17:00</p>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.35 }}
+          className="border rounded-xl p-4 bg-surface shadow-sm"
+          style={{ borderColor: '#B4530930', borderLeftWidth: 3, borderLeftColor: '#B45309' }}>
+          <p className="font-mono text-xs font-bold mb-1" style={{ color: '#B45309' }}>REALITY — what actually happens</p>
+          <div className="flex items-center gap-3">
+            <div className="flex-1">
+              <div className="flex items-center gap-1 mb-1">
+                <div className="h-2.5 rounded-full flex-1" style={{ background: 'linear-gradient(90deg, #B45309 28%, #B4530920 28%)' }} />
+              </div>
+              <p className="text-muted text-xs">Battery at random charge level → no plan → peak window wasted</p>
+            </div>
+            <div className="flex-shrink-0 text-center">
+              <p className="stat-number text-lg font-bold" style={{ color: '#B45309' }}>~28%</p>
+              <p className="font-mono text-xs text-muted">at 17:00</p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Bottom stat */}
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.55 }}
+        className="rounded-xl p-4 text-center"
+        style={{ background: '#B4530910', border: '1px solid #B4530930' }}>
+        <p className="stat-number text-2xl font-bold" style={{ color: '#B45309' }}>496,680</p>
+        <p className="text-muted text-sm mt-1">battery-hours wasted across Jordan <em>every single day</em></p>
+        <p className="font-mono text-xs mt-1" style={{ color: '#B45309' }}>82,780 sites × 6 hours</p>
       </motion.div>
     </div>
   )

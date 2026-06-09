@@ -9,8 +9,12 @@ import InsightViz from '../components/viz/InsightViz'
 
 const STEPS = [
   {
-    headline: "The CFO approved the battery. His payback calculation is wrong.",
-    body: "In July 2024, Jordan mandated peak pricing for all medium and large industry — electricity costs 34% more between 5pm and 11pm. Every battery system installed should be fully charged by then, ready to run the building without touching the expensive grid. Most aren't. No software is doing the scheduling. The CFO's 4-year payback is quietly slipping.",
+    headline: "The CFO approved the battery. His spreadsheet assumed prices don't change.",
+    body: "Every CFO who bought a battery was shown the same model: a fixed monthly saving from avoided grid import, paid back in 4 years. That calculation assumes electricity costs roughly the same at 2pm and at 7pm. It made sense at the time. Then the rules changed.",
+  },
+  {
+    headline: "They don't. Jordan switched to peak pricing in July 2024.",
+    body: "Between 5pm and 11pm, electricity now costs 34% more than during the rest of the day. Every battery should be fully charged right before that window opens — then run the site through it without touching the expensive grid. Most batteries don't do this. The CFO's 4-year payback is quietly slipping.",
   },
   {
     headline: "20–25% of available savings missed every single month",
@@ -44,11 +48,12 @@ export default function ProblemSection() {
 
   const renderViz = () => {
     switch (activeStep) {
-      case 0: return <TariffChart activeStep={0} />
-      case 1: return <TariffChart activeStep={1} />
-      case 2: return <GridStatsViz activeStep={1} />
-      case 3: return <InsightViz />
-      default: return <TariffChart activeStep={0} />
+      case 0: return <TariffChart variant="flat" />
+      case 1: return <TariffChart variant="real" />
+      case 2: return <TariffChart variant="real" showSavings />
+      case 3: return <GridStatsViz activeStep={1} />
+      case 4: return <InsightViz />
+      default: return <TariffChart variant="flat" />
     }
   }
 

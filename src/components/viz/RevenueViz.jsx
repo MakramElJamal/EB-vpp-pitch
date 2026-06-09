@@ -1,10 +1,5 @@
 import { motion } from 'framer-motion'
 
-const PHASES = [
-  { phase: 'Now', years: 'Years 1–3', title: 'Help businesses save on peak electricity', desc: "Subscription + 10% of savings — executable today, no new law needed", color: '#0B7070' },
-  { phase: 'Next', years: 'Years 3–5', title: 'Get paid by the grid operator too', desc: "As Jordan formalises grid flexibility rules, we aggregate our portfolio and earn from NEPCO — not just individual customers", color: '#B45309' },
-  { phase: 'Later', years: 'Year 5+', title: 'Trade energy on open markets', desc: 'The platform participates in balancing markets directly — proven in Germany and Australia', color: '#60A5FA' },
-]
 
 export default function RevenueViz({ activeStep }) {
   return (
@@ -80,52 +75,65 @@ export default function RevenueViz({ activeStep }) {
 
       {/* NEPCO as client — step 2 */}
       {activeStep === 2 && (
-        <motion.div key="nepco" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
-          <p className="chapter-label mb-2">NEPCO is our next client</p>
+        <motion.div key="nepco" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-5 px-2">
+          <p className="chapter-label">From software vendor to national infrastructure</p>
 
-          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }}
-            className="border border-border rounded-xl p-4 bg-surface space-y-2 shadow-sm">
-            <p className="font-mono text-xs text-accent font-bold">Today — Commercial customers</p>
-            <p className="text-primary text-sm font-medium">JOD 70–150 per site per month</p>
-            <p className="text-muted text-xs leading-relaxed">
-              1–3 pilot sites in Year 1. Each delivers a verified saving. Word of mouth grows the portfolio. Profitable from the start.
-            </p>
-          </motion.div>
+          {/* Two client cards */}
+          <div className="grid grid-cols-2 gap-3">
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.08 }}
+              className="rounded-2xl p-5 space-y-3 border border-accent/20"
+              style={{ background: '#0B707008' }}>
+              <div className="w-9 h-9 rounded-xl flex items-center justify-center text-lg"
+                style={{ background: '#0B707018' }}>🏭</div>
+              <div>
+                <p className="font-mono text-xs font-bold text-accent mb-0.5">TODAY</p>
+                <p className="text-primary text-sm font-semibold">Commercial clients</p>
+                <p className="stat-number text-xl font-bold text-accent mt-1">JOD 75–155</p>
+                <p className="text-muted text-xs mt-0.5">per site per month</p>
+              </div>
+            </motion.div>
 
-          <div className="flex items-center gap-2 px-1">
-            <div className="flex-1 h-px bg-border" />
-            <span className="font-mono text-xs text-muted">as the portfolio grows</span>
-            <div className="flex-1 h-px bg-border" />
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.18 }}
+              className="rounded-2xl p-5 space-y-3 border"
+              style={{ borderColor: '#B4530930', background: '#B4530908' }}>
+              <div className="w-9 h-9 rounded-xl flex items-center justify-center text-lg"
+                style={{ background: '#B4530918' }}>⚡</div>
+              <div>
+                <p className="font-mono text-xs font-bold mb-0.5" style={{ color: '#B45309' }}>NEXT</p>
+                <p className="text-primary text-sm font-semibold">NEPCO as a client</p>
+                <p className="text-muted text-xs mt-1 leading-snug">
+                  They need visibility into the batteries we already manage. We're the only platform that has it.
+                </p>
+              </div>
+            </motion.div>
           </div>
 
-          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-            className="border rounded-xl p-4 space-y-2"
-            style={{ borderColor: '#B4530930', background: '#B4530908' }}>
-            <p className="font-mono text-xs font-bold" style={{ color: '#B45309' }}>Next — NEPCO as a client</p>
-            <p className="text-primary text-sm font-medium">Jordan's grid operator needs what we're building</p>
-            <p className="text-muted text-xs leading-relaxed">
-              NEPCO can't see or manage the thousands of batteries behind commercial meters — but they need to.
-              As our portfolio grows, we become the only platform with that visibility.
-              They become a client. That is a completely different revenue category.
-            </p>
+          {/* Arrow connector */}
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
+            className="flex items-center gap-3">
+            <div className="flex-1 h-px bg-border" />
+            <span className="font-mono text-xs text-muted">proven internationally</span>
+            <div className="flex-1 h-px bg-border" />
           </motion.div>
 
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }}
-            className="space-y-2 pt-1">
-            <p className="chapter-label mb-2">Three phases of growth</p>
-            {PHASES.map((p, i) => (
-              <div key={i} className="border rounded-lg p-3 flex gap-3 bg-surface shadow-sm"
-                style={{ borderColor: p.color + '30', borderLeftWidth: '3px', borderLeftColor: p.color }}>
-                <div>
-                  <div className="flex gap-2 items-baseline mb-0.5">
-                    <span className="font-mono text-xs font-bold" style={{ color: p.color }}>{p.phase}</span>
-                    <span className="text-muted text-xs">{p.years}</span>
-                  </div>
-                  <p className="text-primary text-xs font-semibold">{p.title}</p>
-                  <p className="text-muted text-xs mt-0.5 leading-snug">{p.desc}</p>
+          {/* Precedent flags */}
+          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
+            className="rounded-xl border border-border p-4 bg-surface">
+            <p className="text-muted text-xs mb-3 leading-relaxed">
+              Every VPP company that scaled globally did the same thing — private software,
+              government partnership:
+            </p>
+            <div className="flex gap-3 flex-wrap">
+              {[['🇩🇪', 'Germany'], ['🇸🇬', 'Singapore'], ['🇺🇸', 'USA']].map(([flag, country]) => (
+                <div key={country} className="flex items-center gap-1.5 border border-border rounded-lg px-3 py-2 bg-bg">
+                  <span className="text-lg">{flag}</span>
+                  <span className="text-primary text-xs font-semibold">{country}</span>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            <p className="font-mono text-xs mt-3" style={{ color: '#0B7070' }}>
+              Jordan is next. We are building its version.
+            </p>
           </motion.div>
         </motion.div>
       )}

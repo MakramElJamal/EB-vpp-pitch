@@ -10,12 +10,16 @@ const getRate = (h) => {
 }
 
 const rateData = hours.map((h) => ({ hour: h, ...getRate(h) }))
-const COLORS = { peak: '#B45309', partial: '#D97706', offpeak: '#0B7070' }
+const flatData = hours.map((h) => ({ hour: h, rate: 0.062, tier: 'flat' }))
 
-export default function TariffChart({ activeStep }) {
+const COLORS = { peak: '#B45309', partial: '#D97706', offpeak: '#0B7070', flat: '#94A3B8' }
+
+export default function TariffChart({ variant = 'real', showSavings = false }) {
   const containerRef = useRef(null)
   const svgRef = useRef(null)
   const [dims, setDims] = useState({ w: 500, h: 340 })
+  const isFlat = variant === 'flat'
+  const data = isFlat ? flatData : rateData
 
   useEffect(() => {
     if (!containerRef.current) return
@@ -30,7 +34,7 @@ export default function TariffChart({ activeStep }) {
   useEffect(() => {
     if (!svgRef.current || dims.w < 10) return
     const { w, h } = dims
-    const margin = { top: 28, right: 20, bottom: 50, left: 62 }
+    const margin = { top: 34, right: 20, bottom: 50, left: 62 }
     const iw = w - margin.left - margin.right
     const ih = h - margin.top - margin.bottom
 
@@ -52,7 +56,7 @@ export default function TariffChart({ activeStep }) {
 
     // Bars
     g.selectAll('.bar')
-      .data(rateData)
+      .data(data)
       .join('rect')
       .attr('x', d => x(String(d.hour)))
       .attr('y', ih)
@@ -64,23 +68,63 @@ export default function TariffChart({ activeStep }) {
       .attr('y', d => y(d.rate))
       .attr('height', d => ih - y(d.rate))
 
-    // Peak zone bracket & label
-    const peakHours = rateData.filter(d => d.tier === 'peak')
-    const peakStart = x(String(peakHours[0].hour))
-    const peakEnd = x(String(peakHours[peakHours.length - 1].hour)) + x.bandwidth()
+    if (isFlat) {
+      // Label: "CFO's assumption"
+      g.append('text')
+        .attr('x', iw / 2).attr('y', -16)
+        .attr('text-anchor', 'middle')
+        .attr('font-size', '10px')
+        .attr('font-family', 'DM Mono, monospace')
+        .attr('fill', '#64748B')
+        .text('The assumption: same price all day, every day')
 
-    g.append('rect')
-      .attr('x', peakStart).attr('y', -10)
-      .attr('width', peakEnd - peakStart).attr('height', 5)
-      .attr('fill', '#B45309').attr('rx', 2).attr('opacity', 0.7)
+      // Dashed ghost line showing where peak actually is
+      const peakStart = x('17')
+      const peakEnd = x('22') + x.bandwidth()
+      g.append('rect')
+        .attr('x', peakStart).attr('y', y(0.079))
+        .attr('width', peakEnd - peakStart).attr('height', ih - y(0.079))
+        .attr('fill', '#B4530912')
+        .attr('stroke', '#B45309').attr('stroke-width', 0.8)
+        .attr('stroke-dasharray', '3 3')
 
-    g.append('text')
-      .attr('x', (peakStart + peakEnd) / 2).attr('y', -14)
-      .attr('text-anchor', 'middle')
-      .attr('font-size', '9px')
-      .attr('font-family', 'DM Mono, monospace')
-      .attr('fill', '#B45309')
-      .text('PEAK 17:00–23:00 (+34%)')
+      g.append('text')
+        .attr('x', (peakStart + peakEnd) / 2).attr('y', y(0.079) - 6)
+        .attr('text-anchor', 'middle')
+        .attr('font-size', '8.5px')
+        .attr('font-family', 'DM Mono, monospace')
+        .attr('fill', '#B45309').attr('opacity', 0.75)
+        .text('actual peak (hidden)')
+    } else {
+      // Peak zone bracket
+      const peakHours = rateData.filter(d => d.tier === 'peak')
+      const peakStart = x(String(peakHours[0].hour))
+      const peakEnd = x(String(peakHours[peakHours.length - 1].hour)) + x.bandwidth()
+
+      g.append('rect')
+        .attr('x', peakStart).attr('y', -12)
+        .attr('width', peakEnd - peakStart).attr('height', 5)
+        .attr('fill', '#B45309').attr('rx', 2).attr('opacity', 0.7)
+
+      g.append('text')
+        .attr('x', (peakStart + peakEnd) / 2).attr('y', -16)
+        .attr('text-anchor', 'middle')
+        .attr('font-size', '9px')
+        .attr('font-family', 'DM Mono, monospace')
+        .attr('fill', '#B45309')
+        .text('PEAK 17:00–23:00 (+34%)')
+
+      if (showSavings) {
+        g.append('text')
+          .attr('x', iw * 0.5).attr('y', y(0.089))
+          .attr('text-anchor', 'middle')
+          .attr('font-size', '11px')
+          .attr('font-family', 'DM Mono, monospace')
+          .attr('fill', '#EF4444').attr('opacity', 0)
+          .text('20–25% savings unrealised')
+          .transition().duration(600).attr('opacity', 1)
+      }
+    }
 
     // X axis
     const xAxis = d3.axisBottom(x)
@@ -91,43 +135,40 @@ export default function TariffChart({ activeStep }) {
     g.select('.domain').attr('stroke', '#E5E1DA')
     g.selectAll('.tick line').attr('stroke', '#E5E1DA')
 
-    // Y axis — fills in JOD, label in fils
+    // Y axis
     const yAxis = d3.axisLeft(y).ticks(4).tickFormat(d => `${(d * 1000).toFixed(0)} fils`)
     g.append('g').call(yAxis)
       .selectAll('text').attr('fill', '#78716C').attr('font-size', '9px').attr('font-family', 'DM Mono, monospace')
     g.select('.domain').attr('stroke', '#E5E1DA')
     g.selectAll('.tick line').attr('stroke', '#E5E1DA')
-
-    // Savings annotation (step 1)
-    if (activeStep === 1) {
-      g.append('text')
-        .attr('x', iw * 0.5).attr('y', y(0.089))
-        .attr('text-anchor', 'middle')
-        .attr('font-size', '11px')
-        .attr('font-family', 'DM Mono, monospace')
-        .attr('fill', '#EF4444').attr('opacity', 0)
-        .text('20–25% savings unrealised')
-        .transition().duration(600).attr('opacity', 1)
-    }
-  }, [dims, activeStep])
+  }, [dims, variant, showSavings, data, isFlat])
 
   return (
     <div ref={containerRef} className="w-full h-full p-6">
-      <p className="chapter-label mb-2">EMRC Time-of-Use Tariff — Jordan (medium industry)</p>
-      <div className="flex gap-4 mb-2 flex-wrap">
-        {[['#B45309', 'Peak — 79 fils/kWh'], ['#D97706', 'Partial — 69 fils/kWh'], ['#0B7070', 'Off-peak — 59 fils/kWh']].map(([c, l]) => (
-          <div key={l} className="flex items-center gap-1.5">
-            <div className="w-2.5 h-2.5 rounded-sm flex-shrink-0" style={{ background: c }} />
-            <span className="font-mono" style={{ fontSize: '0.7rem', color: c }}>{l}</span>
-          </div>
-        ))}
-      </div>
+      <p className="chapter-label mb-2">
+        {isFlat ? "Jordan's electricity price — as the CFO modelled it" : 'EMRC Time-of-Use Tariff — Jordan (medium industry)'}
+      </p>
+      {!isFlat && (
+        <div className="flex gap-4 mb-2 flex-wrap">
+          {[['#B45309', 'Peak — 79 fils/kWh'], ['#D97706', 'Partial — 69 fils/kWh'], ['#0B7070', 'Off-peak — 59 fils/kWh']].map(([c, l]) => (
+            <div key={l} className="flex items-center gap-1.5">
+              <div className="w-2.5 h-2.5 rounded-sm flex-shrink-0" style={{ background: c }} />
+              <span className="font-mono" style={{ fontSize: '0.7rem', color: c }}>{l}</span>
+            </div>
+          ))}
+        </div>
+      )}
+      {isFlat && (
+        <p className="text-muted font-mono mb-2" style={{ fontSize: '0.7rem' }}>
+          Flat rate · 62 fils/kWh · the same at 2am and at 7pm
+        </p>
+      )}
       <svg
         ref={svgRef}
         className="w-full"
         style={{ height: 'calc(100% - 80px)' }}
         role="img"
-        aria-label="Bar chart showing Jordan's ToU electricity tariffs — peak hours 17:00–23:00 are 34% more expensive than off-peak"
+        aria-label={isFlat ? "Flat electricity price assumption" : "Jordan's 3-tier ToU tariff — peak hours 17:00–23:00 are 34% more expensive"}
       />
     </div>
   )
