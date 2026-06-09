@@ -5,29 +5,35 @@ import useScrollStore from '../store/scrollStore'
 const COLUMNS = [
   {
     heading: 'Why Now',
-    color: '#0D9488',
+    color:   '#0D9488',
+    bg:      'rgba(13,148,136,0.06)',
+    border:  'rgba(13,148,136,0.2)',
     points: [
-      'Four policy moves in eighteen months — peak pricing live, storage legalised, sector expanded, feasibility study funded',
-      'No MENA competitor operates commercially today — the window is open right now',
-      'Every year without a software layer is a year of compounding missed savings across 82,780 sites',
+      { icon: '📋', text: 'Four policy moves in eighteen months — peak pricing live, storage legalised, sector expanded, feasibility study funded' },
+      { icon: '🌍', text: 'No MENA competitor operates commercially today — the window is open right now' },
+      { icon: '📈', text: 'Every year without a software layer is a year of compounding missed savings across 82,780 sites' },
     ],
   },
   {
     heading: 'Why Jordan',
-    color: '#E8A838',
+    color:   '#B45309',
+    bg:      'rgba(180,83,9,0.05)',
+    border:  'rgba(180,83,9,0.18)',
     points: [
-      '90% energy import dependency — reducing peak grid load is a national priority, not a niche concern',
-      'The government has already funded a feasibility study for exactly what we are building',
-      'First market proof here travels across the region — MENA has the same hardware, the same problem',
+      { icon: '⚡', text: '90% energy import dependency — reducing peak grid load is a national priority, not a niche concern' },
+      { icon: '🏛️', text: 'The government has already funded a feasibility study for exactly what we are building' },
+      { icon: '🌏', text: 'First market proof here travels across the region — MENA has the same hardware, the same problem' },
     ],
   },
   {
     heading: 'Why Us',
-    color: '#A78BFA',
+    color:   '#7C3AED',
+    bg:      'rgba(124,58,237,0.05)',
+    border:  'rgba(124,58,237,0.18)',
     points: [
-      'Built for Jordan\'s specific tariff structure — every international competitor would need a complete rebuild',
-      'Industrial relationships inside Jordan that cannot be replicated with a budget or a demo call',
-      'Every site we add makes the model smarter for every other site — a data advantage that compounds',
+      { icon: '🔧', text: "Built for Jordan's specific tariff structure — every international competitor would need a complete rebuild" },
+      { icon: '🤝', text: 'Industrial relationships inside Jordan that cannot be replicated with a budget or a demo call' },
+      { icon: '🧠', text: 'Every site we add makes the model smarter for every other site — a data advantage that compounds' },
     ],
   },
 ]
@@ -41,25 +47,44 @@ export default function CloseSection() {
 
       {/* Three columns */}
       <div className="flex-1 grid lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-border">
-        {COLUMNS.map((col, i) => (
+        {COLUMNS.map((col, ci) => (
           <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 24 }}
+            key={ci}
+            initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.15, duration: 0.7 }}
-            className="flex flex-col justify-center px-10 py-16 lg:py-24 gap-8"
+            transition={{ delay: ci * 0.18, duration: 0.65 }}
+            className="flex flex-col px-10 py-16 lg:py-24 gap-10"
           >
-            <p className="chapter-label" style={{ color: col.color }}>{col.heading}</p>
-            <ul className="space-y-5">
+            {/* Heading */}
+            <div>
+              <div className="w-10 h-1.5 rounded-full mb-5" style={{ background: col.color }} />
+              <h2
+                className="display-heading leading-none"
+                style={{ fontSize: 'clamp(2.4rem, 4vw, 3.6rem)', color: col.color }}
+              >
+                {col.heading}
+              </h2>
+            </div>
+
+            {/* Points */}
+            <ul className="space-y-4 flex-1">
               {col.points.map((pt, j) => (
-                <li key={j} className="flex items-start gap-3">
-                  <span
-                    className="mt-2 w-1 h-1 rounded-full flex-shrink-0"
-                    style={{ background: col.color, minWidth: '0.25rem', minHeight: '0.25rem' }}
-                  />
-                  <p className="text-muted text-sm leading-relaxed">{pt}</p>
-                </li>
+                <motion.li
+                  key={j}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: ci * 0.18 + j * 0.1 + 0.25 }}
+                  className="flex items-start gap-4 rounded-xl p-4"
+                  style={{ background: col.bg, border: `1px solid ${col.border}` }}
+                >
+                  <span className="text-xl flex-shrink-0 mt-0.5">{pt.icon}</span>
+                  <p className="text-primary leading-relaxed"
+                    style={{ fontSize: 'clamp(0.95rem, 1.3vw, 1.1rem)' }}>
+                    {pt.text}
+                  </p>
+                </motion.li>
               ))}
             </ul>
           </motion.div>
