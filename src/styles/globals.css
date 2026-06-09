@@ -6,7 +6,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 17px;
+  font-size: 19px;
 }
 
 body {
@@ -24,8 +24,8 @@ body {
   align-items: center;
   padding: 4rem 2rem;
 }
-[data-step] h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.4; }
-[data-step] p  { font-size: clamp(0.9rem, 1.5vw, 1rem); line-height: 1.9; }
+[data-step] h3 { font-size: clamp(1.3rem, 2.2vw, 1.6rem); line-height: 1.35; }
+[data-step] p  { font-size: clamp(1rem, 1.7vw, 1.15rem); line-height: 1.85; }
 
 /* ── Sticky viz panel ──────────────────────────────────────── */
 .sticky-viz {

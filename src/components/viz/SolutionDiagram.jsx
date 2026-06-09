@@ -11,7 +11,7 @@ const STEPS = [
   {
     n: '02',
     label: 'Smart meters (already on site)',
-    desc: "Government-mandated meters already installed. We connect through these — no new hardware, no installation team.",
+    desc: "Government-mandated smart meters already on site. We install a small gateway router and connect through these — the customer keeps full override at all times.",
     color: '#0B7070',
     icon: '📡',
   },
@@ -65,7 +65,7 @@ export default function SolutionDiagram({ visibleLayers = 4 }) {
           style={{ background: '#0B707010', border: '1px solid #0B707030' }}
         >
           <p className="text-sm font-medium" style={{ color: '#0B7070' }}>
-            "Zero new hardware. Zero upfront cost. The customer just pays when they save."
+            "Minimal setup. The customer just pays when they save."
           </p>
         </motion.div>
       )}

@@ -10,10 +10,10 @@ import InsightViz from '../components/viz/InsightViz'
 const STEPS = [
   {
     headline: "The CFO approved the battery. His payback calculation is wrong.",
-    body: "In July 2024, Jordan mandated peak pricing for all medium and large industry — electricity costs 25% more between 5pm and 11pm. Every BESS installed should be charging cheap all day and releasing during that expensive window. It isn't. No software is doing the scheduling. The CFO's 4-year payback is quietly slipping.",
+    body: "In July 2024, Jordan mandated peak pricing for all medium and large industry — electricity costs 34% more between 5pm and 11pm. Every battery system installed should be fully charged by then, ready to run the building without touching the expensive grid. Most aren't. No software is doing the scheduling. The CFO's 4-year payback is quietly slipping.",
   },
   {
-    headline: "15–20% of available savings missed every single month",
+    headline: "20–25% of available savings missed every single month",
     body: "No alert. No report. No recourse. The battery just sits at whatever charge level it was left at. The peak window opens at 5pm, the battery does nothing useful, and the electricity bill arrives the same size it always did. The hardware is fine. The management software doesn't exist.",
   },
   {
@@ -22,7 +22,7 @@ const STEPS = [
   },
   {
     headline: "The opportunity hiding in plain sight",
-    body: "Every factory, hotel, and hospital that installed solar in the last five years has a battery. Those batteries are sleeping during the exact hours that matter. This is not a hardware problem. It never was.",
+    body: "Every factory, hotel, and hospital that installed battery storage since it became legal two years ago now has the asset sitting largely idle. Those batteries are sleeping during the exact hours that matter. This is not a hardware problem. It never was.",
   },
 ]
 
@@ -76,7 +76,7 @@ export default function ProblemSection() {
         <div ref={stepsRef} className="lg:col-start-1 lg:row-start-1">
           <div className="min-h-[35vh] flex flex-col justify-end pb-12 px-8 lg:px-12">
             <p className="chapter-label mb-3">Chapter 01</p>
-            <h2 className="display-heading text-3xl lg:text-4xl text-primary">The Problem</h2>
+            <h2 className="display-heading text-4xl lg:text-5xl text-primary">The Problem</h2>
           </div>
 
           {STEPS.map((step, i) => (

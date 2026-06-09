@@ -3,9 +3,9 @@ import { motion, useInView } from 'framer-motion'
 import { useAnimatedCounter } from '../hooks/useAnimatedCounter'
 
 const INPUTS = [
-  { value: '82,780', label: 'commercial sites', sub: 'with solar + battery installed' },
-  { value: '×  5h', label: 'peak hours daily', sub: 'when electricity costs 25% more' },
-  { value: '×  25%', label: 'price premium', sub: 'from 5pm to 11pm every day' },
+  { value: '82,780', label: 'solar installations', sub: 'residential, commercial & industrial across Jordan' },
+  { value: '×  5h', label: 'peak hours daily', sub: '5pm–11pm when grid prices spike' },
+  { value: '×  25%', label: 'avg. wasted premium', sub: 'conservative estimate — actual tariff gap is 34%' },
 ]
 
 function BigCounter() {
@@ -29,7 +29,7 @@ function BigCounter() {
         </span>
       </div>
       <p className="text-lg mt-4 max-w-xl mx-auto" style={{ color: '#A8C8C8' }}>
-        because commercial and industrial sites are running their batteries
+        because solar installations across Jordan are running their batteries
         on autopilot — missing 5 expensive hours every single day
       </p>
     </div>

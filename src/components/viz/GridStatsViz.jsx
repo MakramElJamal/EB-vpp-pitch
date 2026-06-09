@@ -32,12 +32,12 @@ export default function GridStatsViz({ activeStep }) {
           className="space-y-8"
         >
           <p className="chapter-label">The Plant Manager's Reality</p>
-          <Stat value={25} unit="%" label="Peak electricity premium (17:00–23:00 daily)" color="gold" animate />
-          <Stat value={15} unit="–20%" label="of available monthly savings left unrealised" color="danger" delay={0.2} animate />
+          <Stat value={34} unit="%" label="Peak electricity premium (17:00–23:00 daily)" color="gold" animate />
+          <Stat value={20} unit="–25%" label="of available monthly savings left unrealised" color="danger" delay={0.2} animate />
           <div className="mt-4 p-4 border border-border rounded-lg bg-surface">
             <p className="text-sm text-muted leading-relaxed">
-              <span className="text-primary font-medium">The CFO already approved the BESS.</span>{' '}
-              He was told it would pay back in 4 years. It isn't. Manual dispatch misses the peak window every evening.
+              <span className="text-primary font-medium">The CFO already approved the battery.</span>{' '}
+              He was told it would pay back in 4 years. It isn't. Without scheduling software, the battery misses the peak window every evening.
             </p>
           </div>
         </motion.div>
@@ -53,7 +53,7 @@ export default function GridStatsViz({ activeStep }) {
         >
           <p className="chapter-label">NEPCO's Grid Problem</p>
           <Stat value={26.9} unit="%" label="Current renewable share — target is 50% by 2030" color="accent" animate />
-          <Stat value={12500} unit="" label="Smart meters deployed — of ~500,000 needed" color="danger" delay={0.2} animate />
+          <Stat value={2209460} unit="" label="Smart meters installed — 91.3% of all commercial & residential meters" color="danger" delay={0.2} animate />
           <Stat value={82780} unit="" label="Rooftop PV systems installed — invisible to grid control" color="gold" delay={0.4} animate />
         </motion.div>
       )}
@@ -78,7 +78,7 @@ export default function GridStatsViz({ activeStep }) {
           </p>
           <p className="text-muted leading-relaxed text-sm">
             1 GW of rooftop solar, thousands of BESS units — all idle during the peak window that costs
-            commercial sites 25% more per kWh. The problem is <em>purely software</em>.
+            commercial sites 34% more per kWh. The problem is <em>purely software</em>.
           </p>
         </motion.div>
       )}

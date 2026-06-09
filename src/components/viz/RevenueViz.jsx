@@ -16,7 +16,7 @@ export default function RevenueViz({ activeStep }) {
           <p className="chapter-label mb-2">Pricing — simple, aligned, low-risk</p>
           <div className="border border-border rounded-xl p-6 bg-surface space-y-4">
             <div className="flex items-baseline gap-2">
-              <span className="stat-number text-4xl text-gold font-bold">JOD 30</span>
+              <span className="stat-number text-4xl text-gold font-bold">JOD 35</span>
               <span className="text-muted text-sm">/ site / month</span>
             </div>
             <p className="text-muted text-xs">A rounding error on a large electricity bill — never a procurement conversation</p>
@@ -49,7 +49,7 @@ export default function RevenueViz({ activeStep }) {
               { label: 'Typical large C&I monthly electricity bill', val: 'JOD 5,000–15,000', color: '#7A84A8', icon: '🏭' },
               { label: 'Savings from avoiding peak prices', val: 'JOD 400–1,200 / mo', color: '#B45309', icon: '⬇' },
               { label: 'Our 10% performance fee', val: 'JOD 40–120 / mo', color: '#0B7070', icon: '→' },
-              { label: 'Plus our flat subscription', val: '+ JOD 30 / mo', color: '#0B7070', icon: '+' },
+              { label: 'Plus our flat subscription', val: '+ JOD 35 / mo', color: '#0B7070', icon: '+' },
             ].map((row, i) => (
               <motion.div key={i}
                 initial={{ opacity: 0, x: -12 }}
@@ -72,7 +72,7 @@ export default function RevenueViz({ activeStep }) {
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.55 }}
             className="border border-accent/30 rounded-xl p-4 bg-accent/5 text-center">
             <p className="font-mono text-xs text-accent mb-1">Total per site per month</p>
-            <p className="stat-number text-2xl text-primary font-bold">JOD 70–150</p>
+            <p className="stat-number text-2xl text-primary font-bold">JOD 75–155</p>
             <p className="text-muted text-xs mt-1">at current site sizes — grows with portfolio</p>
           </motion.div>
         </motion.div>

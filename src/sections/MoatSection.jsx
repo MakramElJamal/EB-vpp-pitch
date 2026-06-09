@@ -11,8 +11,8 @@ const STEPS = [
     body: "Our software is built around the specific peak pricing hours and tariff structure that apply in Jordan. Every competitor entering from outside would need to rebuild their entire system from scratch to match this. We already did that work.",
   },
   {
-    headline: 'Zero upfront cost removes the procurement barrier',
-    body: "Jordan's CFOs treat unproven capital commitments with extreme caution. A JOD 30 monthly subscription that generates a first verified saving in Month 6 never reaches procurement committee. The 10% performance fee removes all remaining risk: if we don't save them money, we don't charge extra.",
+    headline: 'Minimal upfront cost removes the procurement barrier',
+    body: "Jordan's CFOs treat unproven capital commitments with extreme caution. A JOD 35 monthly subscription that generates a first verified saving in Month 6 never reaches procurement committee. The 10% performance fee removes all remaining risk: if we don't save them money, we don't charge extra.",
   },
   {
     headline: 'Cultural capital that no foreign entrant can buy',
@@ -21,10 +21,6 @@ const STEPS = [
   {
     headline: 'Our software gets smarter with every new site — permanently',
     body: 'Every site we connect teaches the system more about how commercial sites in Jordan use energy. Our scheduling decisions get more accurate. A new competitor starting tomorrow begins with none of that learning. The gap widens with every site we add, and money alone cannot close it.',
-  },
-  {
-    headline: "NEPCO can't block us — and we don't need them to succeed",
-    body: "Our core business is 100% behind the meter: a customer optimising their own battery against their own electricity bill. No regulator has a mechanism to block that. Grid services are the upside, not the plan.",
   },
 ]
 
@@ -68,7 +64,7 @@ export default function MoatSection() {
         <div ref={stepsRef} className="lg:col-start-1 lg:row-start-1">
           <div className="min-h-[35vh] flex flex-col justify-end pb-12 px-8 lg:px-12">
             <p className="chapter-label mb-3">Chapter 05</p>
-            <h2 className="display-heading text-3xl lg:text-4xl text-primary">Why Us / Moat</h2>
+            <h2 className="display-heading text-4xl lg:text-5xl text-primary">Why Us / Moat</h2>
           </div>
 
           {STEPS.map((step, i) => (

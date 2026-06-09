@@ -10,7 +10,7 @@ const ADVANTAGES = [
   {
     n: '02',
     title: 'No upfront cost removes every barrier',
-    desc: "JOD 30/month never reaches a procurement committee. And since we take 10% of savings only, if we don't deliver value, we don't earn extra. Customers have nothing to lose.",
+    desc: "JOD 35/month never reaches a procurement committee. And since we take 10% of savings only, if we don't deliver value, we don't earn extra. Customers have nothing to lose.",
     color: '#B45309',
   },
   {
@@ -34,7 +34,7 @@ const ADVANTAGES = [
 ]
 
 export default function MoatViz({ activeStep }) {
-  const visible = Math.min(activeStep + 2, ADVANTAGES.length)
+  const visible = Math.min(activeStep + 1, ADVANTAGES.length)
 
   return (
     <div className="w-full h-full flex flex-col justify-center px-6 py-6 overflow-y-auto">

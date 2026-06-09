@@ -128,7 +128,7 @@ export default function MobileApp() {
           </p>
         </FadeUp>
         {[
-          { label: 'What the customer already owns', desc: 'Solar panels + battery + inverter — no new hardware needed', color: '#E8A838' },
+          { label: 'What the customer already owns', desc: 'Solar panels + battery + inverter — already installed, already paid for', color: '#E8A838' },
           { label: 'How we connect', desc: 'Through government-installed smart meters already on site — customer keeps full override', color: '#60A5FA' },
           { label: 'The smart scheduling layer', desc: 'Our software plans the battery schedule overnight, automatically, every day', color: '#0D9488' },
           { label: 'What the customer sees', desc: 'A simple dashboard and a monthly report showing exactly how much they saved', color: '#22C55E' },
@@ -183,7 +183,7 @@ export default function MobileApp() {
         <FadeUp delay={0.1}>
           <div className="border border-border rounded-xl p-5 bg-surface space-y-3">
             <div className="flex items-baseline gap-2">
-              <span className="stat-number text-3xl text-gold font-bold">JOD 30</span>
+              <span className="stat-number text-3xl text-gold font-bold">JOD 35</span>
               <span className="text-muted text-sm">/ site / month</span>
             </div>
             <p className="text-muted text-xs">A rounding error on a large electricity bill</p>
