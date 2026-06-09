@@ -1,50 +1,26 @@
 import { motion } from 'framer-motion'
 import PolicyRoadmap from './PolicyRoadmap'
+import CompetitorMap from './CompetitorMap'
 
 export default function TractionViz({ activeStep }) {
   return (
     <div className="w-full h-full flex flex-col justify-center">
       {activeStep === 0 && (
-        <motion.div key="stats" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          className="px-8 py-8 space-y-7">
+        <motion.div key="map" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+          className="w-full h-full flex flex-col px-6 pt-6 pb-4 gap-3">
 
-          {/* Hero number */}
-          <div className="text-center">
-            <p className="chapter-label mb-3">VPP competitors operating in MENA today</p>
-            <p className="stat-number font-bold leading-none" style={{ fontSize: 'clamp(5rem,11vw,7.5rem)', color: '#22C55E' }}>
-              0
-            </p>
-            <p className="text-muted text-sm mt-3 max-w-xs mx-auto leading-relaxed">
-              No commercial operator. No reference customer. No established relationship.
-            </p>
+          {/* Compact 0-competitor banner */}
+          <div className="flex items-center gap-4 flex-shrink-0">
+            <p className="stat-number font-bold leading-none" style={{ fontSize: '3.8rem', color: '#22C55E' }}>0</p>
+            <div>
+              <p className="text-primary text-sm font-semibold">VPP competitors in MENA today</p>
+              <p className="text-muted text-xs">No commercial operator. No reference customer.</p>
+            </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="flex-1 h-px bg-border" />
-            <span className="font-mono text-xs text-muted">why we fill it first</span>
-            <div className="flex-1 h-px bg-border" />
-          </div>
-
-          {/* Competitive advantages */}
-          <div className="space-y-2.5">
-            {[
-              { icon: '🎯', label: 'Built for Jordan\'s exact rules', note: 'Any international competitor entering MENA would rebuild their entire software stack to match EMRC tariffs. We already did.' },
-              { icon: '✅', label: 'Legal to operate today — no approval needed', note: 'Behind-the-meter optimisation is fully permitted. We don\'t need a regulatory relationship to get the first customer.' },
-              { icon: '🏆', label: 'First verified saving is permanent capital', note: 'Industrial buyers in Jordan trust one thing: a peer who says it worked. That reference can\'t be bought back.' },
-            ].map((adv, i) => (
-              <motion.div key={i}
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.15 + i * 0.1 }}
-                className="flex gap-3 items-start border border-border rounded-xl p-3.5 bg-surface shadow-sm"
-              >
-                <span className="text-base flex-shrink-0 mt-0.5">{adv.icon}</span>
-                <div>
-                  <p className="text-primary text-sm font-semibold leading-snug mb-0.5">{adv.label}</p>
-                  <p className="text-muted text-xs leading-relaxed">{adv.note}</p>
-                </div>
-              </motion.div>
-            ))}
+          {/* Positioning map */}
+          <div className="flex-1 min-h-0">
+            <CompetitorMap />
           </div>
         </motion.div>
       )}
