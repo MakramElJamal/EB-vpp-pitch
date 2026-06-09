@@ -15,8 +15,8 @@ const STEPS = [
     body: "Commercial sites in Jordan spend JOD 5,000–15,000 per month on electricity. Avoiding peak prices saves them JOD 400–1,200 of that. Our 10% of those savings, plus the subscription, gives us JOD 75–155 per site per month — growing with the size of the site. We need 1–3 sites in Year 1 to prove it, then word of mouth does the rest.",
   },
   {
-    headline: "NEPCO is our next client — not a risk.",
-    body: "Jordan's national grid operator (NEPCO) needs to see and manage the thousands of batteries behind commercial meters. Right now, they can't. As our portfolio grows, we become the only platform with that visibility. Every VPP aggregator that reached this scale globally — in Germany, Singapore, and the United States — is a private company that partnered with a national grid operator. That's the international precedent. We're building Jordan's version of that partnership.",
+    headline: "Grid operators become our next client — not a risk.",
+    body: "Legislators and grid operators need to see and manage the thousands of batteries behind commercial meters. Right now, they can't. As our portfolio grows, we become the only platform with that visibility. Every VPP aggregator that reached this scale globally — in Germany, Singapore, and the United States — is a private company that partnered with a national grid operator. That's the international precedent. We're building Jordan's version of that partnership.",
   },
 ]
 

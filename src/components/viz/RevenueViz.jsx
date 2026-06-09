@@ -73,9 +73,9 @@ export default function RevenueViz({ activeStep }) {
         </motion.div>
       )}
 
-      {/* NEPCO as client — step 2 */}
+      {/* Grid operator as client — step 2 */}
       {activeStep === 2 && (
-        <motion.div key="nepco" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-5 px-2">
+        <motion.div key="gridop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-5 px-2">
           <p className="chapter-label">From software vendor to national infrastructure</p>
 
           {/* Two client cards */}
@@ -100,9 +100,9 @@ export default function RevenueViz({ activeStep }) {
                 style={{ background: '#B4530918' }}>⚡</div>
               <div>
                 <p className="font-mono text-xs font-bold mb-0.5" style={{ color: '#B45309' }}>NEXT</p>
-                <p className="text-primary text-sm font-semibold">NEPCO as a client</p>
+                <p className="text-primary text-sm font-semibold">Grid operator as a client</p>
                 <p className="text-muted text-xs mt-1 leading-snug">
-                  They need visibility into the batteries we already manage. We're the only platform that has it.
+                  Legislators and grid operators need visibility into the batteries we already manage. We're the only platform that has it.
                 </p>
               </div>
             </motion.div>
