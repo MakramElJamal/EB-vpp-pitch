@@ -85,7 +85,7 @@ export default function ProblemSection() {
                 <div className="space-y-5 max-w-lg">
                   <p className="font-mono text-xs text-accent">04 / {STEPS.length}</p>
                   <h3 className="text-xl font-semibold text-primary leading-snug">
-                    Jordan needs to double its renewable share by 2030. The batteries to help do it are already deployed.
+                    Jordan needs to double its renewable share by 2030 — and battery deployment and management is the only path to close that gap.
                   </h3>
 
                   {/* Import dependency */}

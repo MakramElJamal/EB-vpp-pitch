@@ -115,14 +115,69 @@ export default function TariffChart({ variant = 'real', showSavings = false }) {
         .text('PEAK 17:00–23:00 (+34%)')
 
       if (showSavings) {
-        g.append('text')
-          .attr('x', iw * 0.5).attr('y', y(0.089))
-          .attr('text-anchor', 'middle')
-          .attr('font-size', '11px')
-          .attr('font-family', 'DM Mono, monospace')
+        // Diagonal-stripe hatch pattern — the missed savings delta
+        const defs = svg.append('defs')
+        const pat = defs.append('pattern')
+          .attr('id', 'missed-hatch').attr('patternUnits', 'userSpaceOnUse')
+          .attr('width', 7).attr('height', 7)
+          .attr('patternTransform', 'rotate(45)')
+        pat.append('line')
+          .attr('x1', 0).attr('y1', 0).attr('x2', 0).attr('y2', 7)
+          .attr('stroke', '#EF4444').attr('stroke-width', 2.5).attr('opacity', 0.55)
+
+        // Overlay the hatch over the full peak bars (shows wasted opportunity)
+        g.append('rect')
+          .attr('x', peakStart).attr('y', y(0.079))
+          .attr('width', peakEnd - peakStart)
+          .attr('height', ih - y(0.079))
+          .attr('fill', 'url(#missed-hatch)')
+          .attr('opacity', 0)
+          .transition().delay(800).duration(600)
+          .attr('opacity', 0.45)
+
+        // Red highlight band: just the delta (79 fils minus 59 fils = 20 fils gap)
+        g.append('rect')
+          .attr('x', peakStart).attr('y', y(0.079))
+          .attr('width', peakEnd - peakStart)
+          .attr('height', y(0.059) - y(0.079))
           .attr('fill', '#EF4444').attr('opacity', 0)
-          .text('20–25% savings unrealised')
-          .transition().duration(600).attr('opacity', 1)
+          .transition().delay(900).duration(500)
+          .attr('opacity', 0.12)
+
+        // Bracket: 59→79 fils gap
+        const midX = (peakStart + peakEnd) / 2
+        g.append('line')
+          .attr('x1', peakEnd + 6).attr('x2', peakEnd + 6)
+          .attr('y1', y(0.079)).attr('y2', y(0.059))
+          .attr('stroke', '#EF4444').attr('stroke-width', 1.5).attr('opacity', 0)
+          .transition().delay(1000).duration(400).attr('opacity', 0.8)
+        g.append('line')
+          .attr('x1', peakEnd + 3).attr('x2', peakEnd + 9).attr('y1', y(0.079)).attr('y2', y(0.079))
+          .attr('stroke', '#EF4444').attr('stroke-width', 1.5).attr('opacity', 0)
+          .transition().delay(1000).duration(400).attr('opacity', 0.8)
+        g.append('line')
+          .attr('x1', peakEnd + 3).attr('x2', peakEnd + 9).attr('y1', y(0.059)).attr('y2', y(0.059))
+          .attr('stroke', '#EF4444').attr('stroke-width', 1.5).attr('opacity', 0)
+          .transition().delay(1000).duration(400).attr('opacity', 0.8)
+
+        // Large prominent label
+        const lblY = y(0.069)
+        // background pill
+        g.append('rect')
+          .attr('x', iw * 0.08).attr('y', lblY - 18)
+          .attr('width', iw * 0.54).attr('height', 24)
+          .attr('rx', 5).attr('fill', '#FEF2F2').attr('stroke', '#EF4444')
+          .attr('stroke-width', 1.2).attr('opacity', 0)
+          .transition().delay(1100).duration(500).attr('opacity', 1)
+
+        g.append('text')
+          .attr('x', iw * 0.08 + (iw * 0.54) / 2).attr('y', lblY - 2)
+          .attr('text-anchor', 'middle')
+          .attr('font-size', '13px').attr('font-weight', 'bold')
+          .attr('font-family', 'DM Mono, monospace')
+          .attr('fill', '#DC2626').attr('opacity', 0)
+          .text('20–25% savings unrealised every month')
+          .transition().delay(1100).duration(500).attr('opacity', 1)
       }
     }
 

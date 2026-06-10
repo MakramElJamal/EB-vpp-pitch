@@ -26,12 +26,12 @@ const MILESTONES = [
     icon: '🏨',
   },
   {
-    date: '2024',
-    title: 'US government backs the concept',
-    desc: 'USTDA funds a VPP feasibility study with Kawar Energy — a pre-procurement signal from government',
+    date: '2025',
+    title: "EU backs Jordan's energy strategy",
+    desc: 'EC-NEAR funds the JESS 2025–2035 project (EC-NEAR/AMM/2024/EA-RP/0007) — a public EU mandate shaping storage and grid policy for the decade',
     done: true,
     hot: false,
-    icon: '🇺🇸',
+    icon: '🇪🇺',
   },
   {
     date: '→ 2030',
