@@ -3,10 +3,10 @@ import { motion, useInView } from 'framer-motion'
 import useScrollStore from '../store/scrollStore'
 
 // ── Scenario A financials ──────────────────────────────────────
-const FIXED        = 1300   // JOD/month, bootstrapped (no salaries)
+const FIXED        = 1740   // JOD/month, bootstrapped (no salaries)
 const REV_SITE     = 117    // JOD/site/month, blended ARR
 const VAR_SITE     = 30     // JOD/site/month, variable cost
-const BE_SITES     = 15     // break-even site count
+const BE_SITES     = 20     // break-even site count
 
 // ── Break-even chart geometry ──────────────────────────────────
 const VW = 580, VH = 260
@@ -30,7 +30,7 @@ const MILESTONES = [
   { period: 'Month 1–4',  icon: '🤝', label: 'Prospect qualification',    sub: 'Convert warm introductions into structured conversations. Qualify 8–12 sites.' },
   { period: 'Month 4–7',  icon: '📡', label: 'First pilot deployed',       sub: 'Controller installed. Telemetry live. Shadow-mode optimization running.' },
   { period: 'Month 11',   icon: '✅', label: 'First paying customer',      sub: 'Pilot converts. Verified savings report. Shared-savings contract signed.' },
-  { period: 'Year 2',     icon: '⚡', label: 'Break-even: 15 sites',       sub: 'Monthly revenue covers all costs. Platform self-sustaining. No salaries needed.' },
+  { period: 'Year 2',     icon: '⚡', label: 'Break-even: 20 sites',       sub: 'Monthly revenue covers all costs. Platform self-sustaining. No salaries needed.' },
 ]
 
 // ── Per-site unit economics ─────────────────────────────────────
@@ -110,7 +110,7 @@ function BreakEvenChart() {
           <text x={beX + 10} y={beY - 8} fontSize={9.5} fill="#0B7070"
             fontFamily="DM Mono,monospace" fontWeight="bold">Break-even</text>
           <text x={beX + 10} y={beY + 5} fontSize={9} fill="#0B7070"
-            fontFamily="DM Mono,monospace">15 sites · Year 2</text>
+            fontFamily="DM Mono,monospace">20 sites · Year 2</text>
         </motion.g>
 
         {/* Profit zone label */}
@@ -174,14 +174,15 @@ export default function AskSection() {
     <section id="ask" className="min-h-screen bg-bg py-24 px-8 md:px-16 lg:px-24">
       <div className="max-w-5xl mx-auto space-y-16">
 
-        {/* Header */}
+        {/* Header + KPI strip — one slide */}
+        <div data-snap className="space-y-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }}
         >
           <p className="chapter-label mb-4">Chapter 06 — The Ask</p>
           <h2 className="display-heading text-4xl lg:text-5xl text-primary leading-tight">
-            We break even at 15 sites.<br />
+            We break even at 20 sites.<br />
             <span style={{ color: '#0B7070' }}>That's Year 2.</span>
           </h2>
           <p className="text-muted mt-4 max-w-2xl leading-relaxed" style={{ fontSize: 'clamp(1rem,1.5vw,1.15rem)' }}>
@@ -198,7 +199,7 @@ export default function AskSection() {
         >
           {[
             { label: 'Year 1 total budget',  value: 'JOD 16K',  sub: 'bootstrapped, no salaries',            color: '#0B7070' },
-            { label: 'Sites to break-even',  value: '15',        sub: 'at blended JOD 117/site/month',       color: '#B45309' },
+            { label: 'Sites to break-even',  value: '20',        sub: 'at blended JOD 117/site/month',       color: '#B45309' },
             { label: 'Gross margin',          value: '74%',       sub: 'stable from site 3 to site 80+',      color: '#15803D' },
           ].map((kpi, i) => (
             <div key={i} className="rounded-2xl border border-border bg-surface p-6 text-center">
@@ -210,23 +211,26 @@ export default function AskSection() {
             </div>
           ))}
         </motion.div>
+        </div>
 
         {/* Break-even chart */}
         <motion.div
+          data-snap
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.15 }}
           className="rounded-2xl border border-border bg-surface p-6"
         >
           <p className="gold-label mb-1">Break-even analysis — Scenario A (bootstrapped)</p>
           <p className="text-muted text-sm mb-5">
-            Revenue rises at JOD 117/site. Total cost rises at JOD 30/site from a JOD 1,300 fixed base.
-            Lines cross at <strong className="text-primary">15 sites</strong>.
+            Revenue rises at JOD 117/site. Total cost rises at JOD 30/site from a JOD 1,740 fixed base.
+            Lines cross at <strong className="text-primary">20 sites</strong>.
           </p>
           <BreakEvenChart />
         </motion.div>
 
         {/* Milestone timeline */}
         <motion.div
+          data-snap
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}
         >
@@ -256,6 +260,7 @@ export default function AskSection() {
 
         {/* Per-site unit economics */}
         <motion.div
+          data-snap
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.25 }}
           className="rounded-2xl border border-border bg-surface p-6"
