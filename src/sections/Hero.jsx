@@ -13,7 +13,7 @@ export default function Hero() {
   }, [setChapter])
 
   return (
-    <section id="hero" data-snap className="relative min-h-screen flex flex-col justify-center bg-bg overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex flex-col justify-center bg-bg overflow-hidden">
 
       {/* Subtle teal gradient wash */}
       <div className="absolute inset-0 pointer-events-none"

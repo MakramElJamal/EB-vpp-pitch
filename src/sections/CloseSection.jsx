@@ -9,7 +9,7 @@ const COLUMNS = [
     bg:      'rgba(13,148,136,0.06)',
     border:  'rgba(13,148,136,0.2)',
     points: [
-      { icon: '📋', text: 'Four policy moves in eighteen months — peak pricing live, storage legalised, sector expanded, EU-backed energy strategy funded' },
+      { icon: '📋', text: 'Four policy moves in eighteen months — peak pricing live, storage legalised, sector expanded, feasibility study funded' },
       { icon: '🌍', text: 'No MENA competitor operates commercially today — the window is open right now' },
       { icon: '📈', text: 'Every year without a software layer is a year of compounding missed savings across 82,780 sites' },
     ],
@@ -21,7 +21,7 @@ const COLUMNS = [
     border:  'rgba(180,83,9,0.18)',
     points: [
       { icon: '⚡', text: '90% energy import dependency — reducing peak grid load is a national priority, not a niche concern' },
-      { icon: '🏛️', text: "The EU has publicly funded Jordan's 2025–2035 energy strategy — storage and grid flexibility are written into it" },
+      { icon: '🏛️', text: 'The government has already funded a feasibility study for exactly what we are building' },
       { icon: '🌏', text: 'First market proof here travels across the region — MENA has the same hardware, the same problem' },
     ],
   },
@@ -46,7 +46,7 @@ export default function CloseSection() {
     <section id="close" className="min-h-screen flex flex-col bg-bg">
 
       {/* Three columns */}
-      <div data-snap className="flex-1 grid lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-border">
+      <div className="flex-1 grid lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-border">
         {COLUMNS.map((col, ci) => (
           <motion.div
             key={ci}
@@ -93,7 +93,6 @@ export default function CloseSection() {
 
       {/* Final closing line */}
       <motion.div
-        data-snap
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}

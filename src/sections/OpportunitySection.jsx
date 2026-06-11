@@ -21,7 +21,6 @@ export default function OpportunitySection() {
     <section className="w-full py-24 px-8 md:px-16 lg:px-24 bg-bg">
       <div className="max-w-5xl mx-auto flex flex-col items-center gap-14">
 
-        <div data-snap className="w-full flex flex-col items-center gap-14">
         {/* Headline */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -81,10 +80,9 @@ export default function OpportunitySection() {
         >
           The batteries are sleeping during the exact hours that matter.
         </motion.p>
-        </div>
 
         {/* OPTIMAL vs REALITY — side by side */}
-        <div data-snap className="w-full grid grid-cols-2 gap-5">
+        <div className="w-full grid grid-cols-2 gap-5">
           <motion.div
             initial={{ opacity: 0, x: -16 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -135,7 +133,6 @@ export default function OpportunitySection() {
 
         {/* Big stat */}
         <motion.div
-          data-snap
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

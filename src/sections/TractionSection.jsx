@@ -12,7 +12,7 @@ const STEPS = [
   },
   {
     headline: 'Four policy moves in eighteen months — each one a green light',
-    body: 'Peak pricing made mandatory. Private storage legalised. The sector extended to hotels and hospitals. An EU-funded national energy strategy (JESS 2025–2035) commissioned. Each of these happened between July 2024 and 2025. This is a policy runway, not a regulatory bet.',
+    body: 'Peak pricing made mandatory. Private storage legalised. The sector extended to hotels and hospitals. A US government-funded feasibility study commissioned. Each of these happened between July 2024 and January 2025. This is a policy runway, not a regulatory bet.',
   },
   {
     headline: 'The first-mover window is real and it is closing',
@@ -58,7 +58,7 @@ export default function TractionSection() {
 
         {/* Scrolling text */}
         <div ref={stepsRef} className="lg:col-start-1 lg:row-start-1">
-          <div data-snap className="min-h-[35vh] flex flex-col justify-end pb-12 px-8 lg:px-12">
+          <div className="min-h-[35vh] flex flex-col justify-end pb-12 px-8 lg:px-12">
             <p className="chapter-label mb-3">Chapter 03</p>
             <h2 className="display-heading text-4xl lg:text-5xl text-primary">Traction & Evidence</h2>
           </div>

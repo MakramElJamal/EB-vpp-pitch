@@ -174,8 +174,7 @@ export default function AskSection() {
     <section id="ask" className="min-h-screen bg-bg py-24 px-8 md:px-16 lg:px-24">
       <div className="max-w-5xl mx-auto space-y-16">
 
-        {/* Header + KPI strip — one slide */}
-        <div data-snap className="space-y-16">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }}
@@ -211,11 +210,9 @@ export default function AskSection() {
             </div>
           ))}
         </motion.div>
-        </div>
 
         {/* Break-even chart */}
         <motion.div
-          data-snap
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.15 }}
           className="rounded-2xl border border-border bg-surface p-6"
@@ -230,7 +227,6 @@ export default function AskSection() {
 
         {/* Milestone timeline */}
         <motion.div
-          data-snap
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}
         >
@@ -260,7 +256,6 @@ export default function AskSection() {
 
         {/* Per-site unit economics */}
         <motion.div
-          data-snap
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.25 }}
           className="rounded-2xl border border-border bg-surface p-6"

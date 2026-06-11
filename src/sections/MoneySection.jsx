@@ -57,7 +57,7 @@ export default function MoneySection() {
     <section className="dark-section w-full py-28 px-8 md:px-16 lg:px-24 flex flex-col items-center gap-20">
 
       {/* ── Hero hook ── */}
-      <div ref={ref} data-snap className="text-center">
+      <div ref={ref} className="text-center">
 
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -114,7 +114,6 @@ export default function MoneySection() {
 
       {/* ── Equation breakdown ── */}
       <motion.div
-        data-snap
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

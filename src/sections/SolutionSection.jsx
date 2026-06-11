@@ -58,7 +58,7 @@ export default function SolutionSection() {
 
         {/* Scrolling text */}
         <div ref={stepsRef} className="lg:col-start-1 lg:row-start-1">
-          <div data-snap className="min-h-[35vh] flex flex-col justify-end pb-12 px-8 lg:px-12">
+          <div className="min-h-[35vh] flex flex-col justify-end pb-12 px-8 lg:px-12">
             <p className="chapter-label mb-3">Chapter 02</p>
             <h2 className="display-heading text-4xl lg:text-5xl text-primary">The Solution</h2>
           </div>

@@ -1,6 +1,5 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { useIsMobile } from './hooks/useIsMobile'
-import useSnapScroll from './hooks/useSnapScroll'
 import useScrollStore from './store/scrollStore'
 
 const Hero             = lazy(() => import('./sections/Hero'))
@@ -23,7 +22,6 @@ const Loader = () => (
 
 function DesktopApp() {
   const { setScrollProgress } = useScrollStore()
-  useSnapScroll()
 
   useEffect(() => {
     const onScroll = () => {
